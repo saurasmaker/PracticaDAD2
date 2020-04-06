@@ -92,14 +92,6 @@ public class Product {
 		this.id = id;
 	}
 
-	public ArrayList<Comment> getComments() {
-		return comments;
-	}
-
-	public void setComments(ArrayList<Comment> comments) {
-		this.comments = comments;
-	}
-
 	public ArrayList<Vote> getVotes() {
 		return votes;
 	}
