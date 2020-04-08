@@ -1,0 +1,28 @@
+#horizontal-top-bar{
+	width: 100%;
+}
+#horizontal-top-bar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+#horizontal-top-bar li {
+  float: left;
+}
+
+#horizontal-top-bar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+#horizontal-top-bar li a:hover {
+  background-color: white;
+  color: black;
+}
