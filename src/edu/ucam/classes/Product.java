@@ -6,24 +6,20 @@ public class Product {
 
 	
 	//Static Atributes
-	String PRODUCT_PARAM = "PRODUCT_PARAM", PRODUCT_TRADEMARK_PARAM = "PRODUCT_TRADEMARK_PARAM", PRODUCT_MODEL_PARAM = "PRODUCT_MODEL_PARAM", 
+	public static String PRODUCT_PARAM = "PRODUCT_PARAM", PRODUCT_TRADEMARK_PARAM = "PRODUCT_TRADEMARK_PARAM", PRODUCT_MODEL_PARAM = "PRODUCT_MODEL_PARAM", 
 		PRODUCT_ID_PARAM = "PRODUCT_ID_PARAM", PRODUCT_DESCRIPTION_PARAM = "PRODUCT_DESCRIPTION_PARAM";
 		
 	
 	
 	//Attributes
 	String name, trademark, model, description, id;
-	ArrayList<Vote> votes;
-	
 	
 	
 	//Constructors
 	public Product() {
-		this.votes = new ArrayList<Vote>();
 	}
 	
 	public Product(String name, String trademark, String model, String desription, String id){
-		this.votes = new ArrayList<Vote>();	
 		this.name = name;
 		this.trademark = trademark;
 		this.model = model;
@@ -92,12 +88,4 @@ public class Product {
 		this.id = id;
 	}
 
-	public ArrayList<Vote> getVotes() {
-		return votes;
-	}
-
-	public void setVotes(ArrayList<Vote> votes) {
-		this.votes = votes;
-	}
-	
 }

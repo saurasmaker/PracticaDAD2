@@ -1,33 +1,29 @@
 package edu.ucam.classes;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Comment {
-		
 	
 	//Static Atributes
-	String COMMENT_PARAM = "COMMENT_PARAM", COMMENT_CONTENT_PARAM = "COMMENT_CONTENT_PARAM", COMMENT_DATE_PARAM = "COMMENT_DATE_PARAM", 
-		COMMENT_ID_PARAM = "COMMENT_ID_PARAM";
-		
-		
-	//Attribute
-	String content, id;
-	Date date;
+	public static String COMMENT_PARAM = "COMMENT_PARAM", COMMENT_RESUME_PARAM = "COMMENT_RESUME_PARAM", COMMENT_CONTENT_PARAM = "COMMENT_CONTENT_PARAM", 
+		COMMENT_VOTE_ID_PARAM = "COMMENT_VOTE_ID_PARAM", COMMENT_ID_PARAM = "COMMENT_ID_PARAM";
+			
+	
+	//Attributes
+	String resume, content, voteId, id;
 	
 	
-	
-	//Contructors
+	//Constructors
 	public Comment() {
 		
 	}
 	
-	public Comment(String content, Date date, String id) {
+	public Comment(String resume, String content, String voteId, String id) {
+		this.resume = resume;
 		this.content = content;
-		this.date = date;
+		this.voteId = voteId;
 		this.id = id;
 	}
-	
 	
 	
 	//Static Methods
@@ -35,13 +31,20 @@ public class Comment {
 		//Id Example -> C12223245; The id of the comments have 1 character 'C' and 8 numbers.
 		String newId = "" + (Integer.parseInt(comments.get(comments.size()-1).getId().substring(1))+1);
 		comment.setId(newId);
-		
+			
 		return;
 	}
 
 	
-	
 	//Getters & Setters
+	public String getResume() {
+		return resume;
+	}
+
+	public void setResume(String resume) {
+		this.resume = resume;
+	}
+
 	public String getContent() {
 		return content;
 	}
@@ -58,14 +61,13 @@ public class Comment {
 		this.id = id;
 	}
 
-	public Date getDate() {
-		return date;
+	public String getVoteId() {
+		return voteId;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setVoteId(String voteId) {
+		this.voteId = voteId;
 	}
 	
-	
-	
+
 }

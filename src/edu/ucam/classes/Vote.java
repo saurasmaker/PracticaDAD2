@@ -1,21 +1,20 @@
 package edu.ucam.classes;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Vote {
 
 	//Static Attributes
-	String VOTE_PARAM = "VOTE_PARAM", VOTE_ASSESSMENT_PARAM = "VOTE_ASSESSMENT_PARAM", VOTE_USER_PARAM = "VOTE_USER_PARAM", 
+	public static String VOTE_PARAM = "VOTE_PARAM", VOTE_ASSESSMENT_PARAM = "VOTE_ASSESSMENT_PARAM", VOTE_USER_PARAM = "VOTE_USER_PARAM", 
 		VOTE_ID_PARAM = "VOTE_ID_PARAM", VOTE_COMMENT_PARAM = "VOTE_COMMENT_PARAM";
 	
 	
 	
 	//Attributes
-	String id, userId;
+	String id, userId, productId;
 	Integer assessment;
-	User user;
-	Comment comment;
-	
+	Date date;
 	
 	
 	//Constructors
@@ -23,10 +22,10 @@ public class Vote {
 		
 	}
 	
-	public Vote(Integer assessment, String userId, Comment comment, String id) {
+	public Vote(Integer assessment, String userId, String productId, String id) {
 		this.assessment =assessment;
 		this.userId = userId;
-		this.comment = comment;
+		this.productId = productId;
 		this.id = id;
 	}
 	
@@ -45,7 +44,7 @@ public class Vote {
 	
 	//Getters & Setters
 	public String getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(String id) {
@@ -53,7 +52,7 @@ public class Vote {
 	}
 
 	public String getUserId() {
-		return userId;
+		return this.userId;
 	}
 
 	public void setUserId(String userId) {
@@ -61,26 +60,29 @@ public class Vote {
 	}
 
 	public Integer getAssessment() {
-		return assessment;
+		return this.assessment;
 	}
 
 	public void setAssessment(Integer assessment) {
 		this.assessment = assessment;
 	}
 
-	public User getUser() {
-		return user;
+	public Date getDate() {
+		return this.date;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
-	public Comment getComment() {
-		return comment;
+
+	public String getProductId() {
+		return this.productId;
 	}
 
-	public void setComment(Comment comment) {
-		this.comment = comment;
+	public void setProductId(String productId) {
+		this.productId = productId;
 	}
+	
+	
 }

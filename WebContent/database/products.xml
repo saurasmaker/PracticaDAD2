@@ -1,0 +1,13 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE products>
+
+<products>
+	<product>
+		<id>P00000000</id>
+		<name>producto</name>
+		<trademark>marca</trademark>
+		<model>modelo</model>
+		<description>descripcion del producto.</description>
+	</product>
+
+</products>
