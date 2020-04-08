@@ -1,0 +1,59 @@
+
+#horizontal-top-bar{
+	width: 100%;
+}
+
+#horizontal-top-bar ul {
+  	list-style-type: none;
+  	margin: 0;
+  	padding: 0;
+  	overflow: hidden;
+  	background-color: #333;
+	float:left;
+}
+
+#horizontal-top-bar-general{
+	  width: 70%
+}
+
+
+#login-shoppingbasket-btn{
+	width: 30%;
+}
+
+#horizontal-top-bar li {
+  	float: left;
+}
+
+
+#horizontal-top-bar a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+
+#horizontal-top-bar li a:hover {
+  background-color: white;
+  color: black;
+}
+
+
+#login-shoppingbasket-btn li{
+	float: right;
+}
+
+
+#logout{
+  display: none;
+  position: absolute;
+}
+
+
+
+/* Show the dropdown menu when the user moves the mouse over the dropdown button */
+#horizontal-top-bar a:hover #logout{
+  display: block;
+}

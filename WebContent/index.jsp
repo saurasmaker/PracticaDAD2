@@ -17,7 +17,7 @@
 		<!-- CSS -->
 		<link href="css/reset.css" rel="stylesheet" type="text/css" />
 		<link href="css/liquid.css" rel="stylesheet" type="text/css" />
-		<link href="css/specificStylesheet.css" rel="stylesheet" type="text/css" />
+		<link href="css/navigation_top_bar.css" rel="stylesheet" type="text/css" />
 		<link href="css/loginPopup.css" rel="stylesheet" type="text/css" />
 		
 		<!-- JAVASCRIPT -->
@@ -38,11 +38,15 @@
 			</hgroup>
 		</header>
 
+
 		<nav id = "horizontal-top-bar">
-			<ul>
-				<li><a href="#" title="#">Lorem ipsum</a></li>
-				<li><a href="#" title="#">Dolor sit amet</a></li>
-				<li><a href="html_jsp/login.jsp" title="#">
+			<ul id = "horizontal-top-bar-general">
+				<li><a href="#" title="">Inicio</a></li>
+				<li><a href="#" title="">Noticias</a></li>
+				<li><a href="#" title="">Contacto</a></li>
+			</ul>
+			<ul id = "login-shoppingbasket-btn">
+				<li><a href="html_jsp/login.jsp" title="">
 					<%
 						if (user != null){
 							out.println(user.getUsername());
@@ -50,7 +54,13 @@
 						else{
 							out.println("Login");
 						}		
-					%></a></li>
+					%></a>
+					<%
+					if (user != null){
+						out.println("<ul><li><a id = \"logout\" href=" + request.getContextPath() + "/ServletLogout>Salir</a></li></ul>");
+					}
+					%>
+				</li>
 					
 			</ul>
 		</nav>
@@ -107,32 +117,6 @@
 		<footer>
 			<p>Fin del ejercicio</p>
 		</footer>
-		
-		
-		<!-- POPUPS -->
-		<div class = "overlay" id="overlay">
-		
-			<div id="login-popup">
-			
-				
-				<h3>Login</h3>
-				
-				<form action="">
-					<div class="contenedor-inputs">
-						<input type="text" placeholder="Username">
-						<input type="email" placeholder="Email">
-					</div>
-					<input type="submit" class="btn-login" id = "btn-login-accept" value="Accept">
-				</form>
-				
-				<form>
-					<input type="submit" class="btn-login" id = "btn-login-cancel" onclick = "closeLogin()"value="Cancel">
-				</form>
-				
-			</div>
-			
-		</div>
-		
 		
 		
 	</body>
