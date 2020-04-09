@@ -1,5 +1,6 @@
 package edu.ucam.servlets;
-
+import edu.ucam.interfaces.*;
+import edu.ucam.tools.*;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,6 +35,8 @@ public class Insercion extends HttpServlet {
 			String email = request.getParameter("email");
 			String password = request.getParameter("password");
 			User usuario = new User(username, email, password, null);
+			BddUser Bdd = new BddUser();
+			Bdd.registrarUsuarios(usuario);
 		}
 	}
 
