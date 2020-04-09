@@ -1,0 +1,24 @@
+body{
+	text-align: center;
+	margin : 50px 50px 60px 60px;
+}
+
+#user{
+	float:right;
+	margin : 30px 30px 80px 40px;
+}
+
+#product{
+	float: left;
+	margin : 30px 30px 40px 40px;
+}
+
+#vote{
+	float: right;
+	margin : 30px 30px 40px 40px;
+}
+
+#comment{
+	float: left;
+	margin : 30px 30px 40px 40px;
+}
