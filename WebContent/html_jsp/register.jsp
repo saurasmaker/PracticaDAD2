@@ -15,14 +15,15 @@
 	</header>
 	<section>
 		<article>
-			<form action="" method="post" id="user">          <!-- insertar usuario -->
+			<form action="<%= request.getContextPath() %>/Insercion" method="post" id="user">          <!-- insertar usuario -->
 				<h2>Cadastro Usuario</h2>
 				Username
 				<input type="text" name="username" required><br><br>
 				Email
-				<input type="text" name="email" required><br><br>
+				<input type="email" name="email" required><br><br>
 				Password
-				<input type="text" name="password" required><br><br>
+				<input type="password" name="password" required><br><br>
+				<% request.setAttribute("tipoInsercion", "1"); %>
 				<input type="submit" value="Cadastrar">
 			</form>
 		</article>
