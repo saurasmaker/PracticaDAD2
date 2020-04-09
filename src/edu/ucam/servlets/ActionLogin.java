@@ -13,21 +13,22 @@ import edu.ucam.classes.User;
  * Servlet implementation class ServletLogin
  */
 @WebServlet("/ServletLogin")
-public class ServletLogin extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+public class ActionLogin extends ServletAction {
        
+	public static String ACTION = "ActionLogin";
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletLogin() {
+    public ActionLogin() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+
+	@Override
+	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		String paramUsername = (request.getParameter(User.USER_USERNAME_PARAM)==null)?"":request.getParameter(User.USER_USERNAME_PARAM);
 		String paramPass = (request.getParameter(User.USER_PASSWORD_PARAM)==null)?"":request.getParameter(User.USER_PASSWORD_PARAM);
 		
@@ -39,20 +40,12 @@ public class ServletLogin extends HttpServlet {
 			
 			request.getSession().setAttribute(User.USER_PARAM, user);
 		}else {
-			
 			request.setAttribute("MSG_ERROR", "Usuario o clave incorrectos");
 		}
 		
 		request.getRequestDispatcher("/index.jsp").forward(request, response);
 		
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		return "/index.jsp";
 	}
 
 }
