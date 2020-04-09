@@ -13,10 +13,10 @@ import org.w3c.dom.NodeList;
 import edu.ucam.classes.*;
 import edu.ucam.interfaces.*;
 
-public class BddUser implements UsuariosBdd{
-	
+public class BddComentario implements CommentariosBdd{
+
 	@Override
-	public boolean registrarUsuarios(User cliente){
+	public boolean registrarComentarios(Comment comentario){
 		boolean registro = false;
 		try{
 			     File fXmlFile = new File(System.getProperty("user.dir") + "/database/products.xml");
@@ -33,7 +33,7 @@ public class BddUser implements UsuariosBdd{
 	                    eElement = (Element) node;
 	             }
 	             Element newNode= doc.createElement("Node"+temp);
-                 newNode.appendChild(doc.createTextNode("insert into users values ('"+cliente.getUsername()+"','"+cliente.getEmail()+"','"+cliente.getPassword()+"','"+cliente.getId()+"');"));
+                 newNode.appendChild(doc.createTextNode("insert into users values ("+comentario.getResume()+",'"+comentario.getContent()+"','"+comentario.getVoteId()+"','"+comentario.getId()+"');"));
                  eElement.appendChild(newNode);
 	             registro = true;
 	    } catch (Exception e) {

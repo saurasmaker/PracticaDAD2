@@ -10,13 +10,13 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import edu.ucam.classes.*;
+import edu.ucam.classes.Vote;
 import edu.ucam.interfaces.*;
 
-public class BddUser implements UsuariosBdd{
+public class BddVote implements VotosBdd{
 	
 	@Override
-	public boolean registrarUsuarios(User cliente){
+	public boolean registrarVotos(Vote voto){
 		boolean registro = false;
 		try{
 			     File fXmlFile = new File(System.getProperty("user.dir") + "/database/products.xml");
@@ -33,7 +33,7 @@ public class BddUser implements UsuariosBdd{
 	                    eElement = (Element) node;
 	             }
 	             Element newNode= doc.createElement("Node"+temp);
-                 newNode.appendChild(doc.createTextNode("insert into users values ('"+cliente.getUsername()+"','"+cliente.getEmail()+"','"+cliente.getPassword()+"','"+cliente.getId()+"');"));
+                 newNode.appendChild(doc.createTextNode("insert into users values ("+voto.getAssessment()+",'"+voto.getUserId()+"','"+voto.getProductId()+"','"+voto.getId()+"');"));
                  eElement.appendChild(newNode);
 	             registro = true;
 	    } catch (Exception e) {

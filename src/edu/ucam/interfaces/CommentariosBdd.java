@@ -6,7 +6,6 @@ import edu.ucam.classes.Comment;
 
 public interface CommentariosBdd {
 	public boolean registrarComentarios(Comment comentario);
-	public boolean actualizarComentarios(Comment comentario);
-	public boolean eliminarComentarios(Comment comentario);
-	public ArrayList<Comment> obtenerComentarios();
+	/*public boolean actualizarComentarios(Comment comentario);
+	public boolean eliminarComentarios(Comment comentario);*/
 }
