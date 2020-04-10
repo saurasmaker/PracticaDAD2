@@ -38,7 +38,13 @@ public class Product {
 		return;
 	}
 	
-	
+	static public void generateIdByReference(Product product, String previus) {
+		//Id Example -> P12223245; The id of the products have 1 character 'P' and 8 numbers.
+		String newId = "" + (Integer.parseInt(previus.substring(1))+1);
+		product.setId(newId);
+		
+		return;
+	}
 
 	
 	//Methods
