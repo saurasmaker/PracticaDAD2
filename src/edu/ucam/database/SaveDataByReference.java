@@ -60,6 +60,10 @@ public class SaveDataByReference {
 			Element description = doc.createElement("description");
 			description.appendChild(doc.createTextNode(p.getDescription()));
 			product.appendChild(description);
+			
+			Element price = doc.createElement("price");
+			description.appendChild(doc.createTextNode(p.getPrice().toString()));
+			product.appendChild(price);
 		
 			// escribimos el contenido en un archivo .xml
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();

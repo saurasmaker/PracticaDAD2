@@ -62,6 +62,10 @@ public class SaveData {
 				description.appendChild(doc.createTextNode(p.getDescription()));
 				product.appendChild(description);
 				 
+				Element price = doc.createElement("price");
+				description.appendChild(doc.createTextNode(p.getPrice().toString()));
+				product.appendChild(price);
+				
 				// escribimos el contenido en un archivo .xml
 				TransformerFactory transformerFactory = TransformerFactory.newInstance();
 				Transformer transformer = transformerFactory.newTransformer();

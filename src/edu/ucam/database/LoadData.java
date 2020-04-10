@@ -21,7 +21,7 @@ public class LoadData {
 
 	public static void loadProducts(ArrayList<Product> products) {
 		try {
-            File file = new File(System.getProperty("user.dir") + "/database/products.xml");
+            File file = new File(System.getProperty("user.dir") + "/WebContent/database/products.xml");
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
             Document document = documentBuilder.parse(file);
@@ -37,7 +37,9 @@ public class LoadData {
                     product.setName(element.getElementsByTagName("name").item(0).getTextContent());
                     product.setModel(element.getElementsByTagName("model").item(0).getTextContent());
                     product.setTrademark(element.getElementsByTagName("trademark").item(0).getTextContent());
-                    product.setDescription(element.getElementsByTagName("trademark").item(0).getTextContent());
+                    product.setDescription(element.getElementsByTagName("description").item(0).getTextContent());
+                    try{product.setPrice(Float.parseFloat(element.getElementsByTagName("price").item(0).getTextContent()));}
+                    catch(Exception e){product.setPrice((float)0.0);}
                     
                     products.add(product);
                 }
@@ -113,7 +115,7 @@ public class LoadData {
 	
 	public static void loadComments(ArrayList<Comment> comments) {
 		try {
-            File file = new File(System.getProperty("user.dir") + "/database/comments.xml");
+            File file = new File(System.getProperty("user.dir") + "/WebContent/database/comments.xml");
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
             Document document = documentBuilder.parse(file);

@@ -13,17 +13,18 @@ public class Product {
 	
 	//Attributes
 	String name, trademark, model, description, id;
-	
+	Float price;
 	
 	//Constructors
 	public Product() {
 	}
 	
-	public Product(String name, String trademark, String model, String desription, String id){
+	public Product(String name, String trademark, String model, String desription, Float price, String id){
 		this.name = name;
 		this.trademark = trademark;
 		this.model = model;
 		this.description = desription;
+		this.price = price;
 		this.id = id;
 	}
 	
@@ -93,5 +94,15 @@ public class Product {
 	public void setId(String id) {
 		this.id = id;
 	}
+
+	public Float getPrice() {
+		return price;
+	}
+
+	public void setPrice(Float price) {
+		this.price = price;
+	}
+	
+	
 
 }
