@@ -102,20 +102,26 @@
 				<% 
 				ArrayList<String> productsReferences = new ArrayList<String>();
 					
-				LoadDataReferences.loadProductsReferences(productsReferences);
+				LoadDataReferences.loadProductsReferences(productsReferences, getServletContext().getRealPath("/"));
 					
 				for(int i = 0; i < productsReferences.size(); ++i){
-					Product p = LoadDataByReference.product(productsReferences.get(i));
+					Product p = LoadDataByReference.product(productsReferences.get(i), getServletContext().getRealPath("/"));
 				%>
 					
-				<article class="product">
+				<article class="content">
 				<h2><%=p.getName()%></h2>
-				<p><%=p.getDescription()%></p>
-				<ul>
-					<li>Marca: <%=p.getTrademark()%></li>
-					<li>Modelo: <%=p.getModel()%></li>
-					<li>Precio: </li>
-				</ul> 
+				
+				<p>
+					<%=p.getDescription()%>
+				</p>
+				
+				<p>
+					- Marca: <%=p.getTrademark()%>
+					<br/>
+					- Modelo: <%=p.getModel()%>
+					<br/>
+					- Precio: <%=p.getPrice().toString()%> Euro(s)
+				</p>
 				
 				</article>
 					
