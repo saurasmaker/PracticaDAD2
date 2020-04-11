@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
  
 <%@ page import="java.util.ArrayList" %>
-<%@ page import = "edu.ucam.classes.*" %>
+<%@ page import = "edu.ucam.classes.User" %>
 <%@ page import = "edu.ucam.servlets.Controller" %>
 <%@ page import = "edu.ucam.database.LoadDataReferences" %>
 <%@ page import = "edu.ucam.database.LoadDataByReference" %>

@@ -18,12 +18,12 @@ import edu.ucam.classes.Vote;
 
 public class LoadDataByReference {
 	
-	public static Product product(String id, String path) {
+	public static Product product(String id) {
 		
 		Product product = null;
 		
 		try {
-            File file = new File(path + "database/products.xml");
+            File file = new File(System.getProperty("user.dir") +  "database/products.xml");
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
             Document document = documentBuilder.parse(file);
