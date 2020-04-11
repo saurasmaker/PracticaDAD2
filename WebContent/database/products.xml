@@ -4,10 +4,22 @@
 <products>
 	<product>
 		<id>P00000000</id>
-		<name>producto</name>
+		<name>nombre</name>
 		<trademark>marca</trademark>
 		<model>modelo</model>
 		<description>descripcion del producto.</description>
+		<price>0.21</price>
 	</product>
 
+	<product>
+		<id>P00000001</id>
+		<name>Prueba 1</name>
+		<trademark>Turno</trademark>
+		<model>Modelaje</model>
+		<description>
+			descripcion del producto. Pues nada aquí estoy poniendo una descripción algo larga para comprobar que todo 
+			funciona perfectamente y ver como se vería esta descripción en la JSP
+		</description>
+		<price>72.84</price>
+	</product>
 </products>

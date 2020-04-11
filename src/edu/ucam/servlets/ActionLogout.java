@@ -13,31 +13,26 @@ import edu.ucam.classes.User;
  * Servlet implementation class ServletLogout
  */
 @WebServlet("/ServletLogout")
-public class ServletLogout extends HttpServlet {
+public class ActionLogout extends ServletAction {
 	private static final long serialVersionUID = 1L;
        
+	public static String ACTION = "ActionLogout";
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletLogout() {
+    public ActionLogout() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	@Override
+	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		request.getSession().removeAttribute(User.USER_PARAM);
 		request.getRequestDispatcher("/index.jsp").forward(request, response);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		return "index.jsp";
 	}
 
 }

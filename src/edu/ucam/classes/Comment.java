@@ -35,6 +35,13 @@ public class Comment {
 		return;
 	}
 
+	static public void generateIdByReference(Comment comment, String previus) {
+		//Id Example -> C12223245; The id of the comments have 1 character 'C' and 8 numbers.
+		String newId = "" + (Integer.parseInt(previus.substring(1))+1);
+		comment.setId(newId);
+		
+		return;
+	}
 	
 	//Getters & Setters
 	public String getResume() {

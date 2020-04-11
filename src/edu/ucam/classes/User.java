@@ -38,8 +38,13 @@ public class User {
 		return;
 	}
 
-	
-	
+	static public void generateIdByReference(User user, String previus) {
+		//Id Example -> U12223245; The id of the users have 1 character 'U' and 8 numbers. If the user is an admin, the character will be a 'A'.
+		String newId = "" + (Integer.parseInt(previus.substring(1))+1);
+		user.setId(newId);
+				
+		return;
+	}
 	//Getters & Setters
 	public String getUsername() {
 		return username;

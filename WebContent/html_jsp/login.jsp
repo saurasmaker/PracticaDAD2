@@ -1,7 +1,9 @@
+<%@page import="edu.ucam.servlets.ActionLogin"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
    
 <%@ page import = "edu.ucam.classes.User" %>
+<%@ page import = "edu.ucam.servlets.Controller" %>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -35,7 +37,10 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178" action="<%= request.getContextPath()%>/ServletLogin" method="POST">
+				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178" action="<%= request.getContextPath()%>/Controller" method="POST">
+					
+					<input type="hidden" name="<%= Controller.PARAM_ACTION_ID %>" value="<%=ActionLogin.ACTION%>">
+					
 					<span class="login100-form-title">
 						Autenticar
 					</span>

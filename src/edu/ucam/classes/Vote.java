@@ -41,6 +41,14 @@ public class Vote {
 	}
 
 	
+	static public void generateIdByReference(Vote vote, String previus) {
+		//Id Example -> V12223245; The id of the comments have 1 character 'V' and 8 numbers.
+		String newId = "" + (Integer.parseInt(previus.substring(1))+1);
+		vote.setId(newId);
+			
+		return;
+	}
+	
 	
 	//Getters & Setters
 	public String getId() {
