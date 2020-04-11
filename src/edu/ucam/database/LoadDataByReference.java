@@ -18,12 +18,12 @@ import edu.ucam.classes.Vote;
 
 public class LoadDataByReference {
 	
-	public static Product product(String id) {
+	public static Product product(String id, String path) {
 		
 		Product product = null;
 		
 		try {
-            File file = new File(System.getProperty("user.dir") +  "database/products.xml");
+			File file = new File(path + "database/products.xml");
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
             Document document = documentBuilder.parse(file);
@@ -54,12 +54,12 @@ public class LoadDataByReference {
 	}
 	
 	
-public static User user(String id) {
+public static User user(String id, String path) {
 		
 		User user = null;
 		
 		try {
-            File file = new File(System.getProperty("user.dir") + "/database/users.xml");
+            File file = new File(path + "/database/users.xml");
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
             Document document = documentBuilder.parse(file);
@@ -89,12 +89,12 @@ public static User user(String id) {
 	}
 
 
-	public static Vote vote(String id) {
+	public static Vote vote(String id, String path) {
 	
 		Vote vote = null;
 	
 		try {
-        	File file = new File(System.getProperty("user.dir") + "/database/votes.xml");
+        	File file = new File(path + "/database/votes.xml");
         	DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         	DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
         	Document document = documentBuilder.parse(file);
@@ -123,12 +123,12 @@ public static User user(String id) {
 		return vote;
 	}
 	
-	public static Comment comment(String id) {
+	public static Comment comment(String id, String path) {
 		
 		Comment comment = null;
 	
 		try {
-        	File file = new File(System.getProperty("user.dir") + "/database/comments.xml");
+        	File file = new File(path + "/database/comments.xml");
         	DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         	DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
         	Document document = documentBuilder.parse(file);
