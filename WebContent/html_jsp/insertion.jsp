@@ -38,7 +38,7 @@
 		<nav id = "horizontal-top-bar">
 			<ul id = "horizontal-top-bar-general">
 				<li><a href="../index.jsp?<%=User.USER_PARAM%>=<%=user%>" title="">Catalogo</a></li>
-				<li><a href="insercion.jsp?<%=User.USER_PARAM%>=<%=user%>" title="">Insertar</a></li>
+				<li><a href="insertion.jsp?<%=User.USER_PARAM%>=<%=user%>" title="">Insertar</a></li>
 				<li><a href="#" title="">Contacto</a></li>
 			</ul>
 			<ul id = "login-shoppingbasket-btn">
@@ -106,22 +106,22 @@
 			%>
 			
 			<article id = "insert-user" class = "content">
-				<form action="<%= request.getContextPath() %>/Controller" method="post" id="product">          <!-- insertar producto -->
+				<form action = "<%=request.getContextPath()%>/Controller" method="post" id="user">          <!-- insertar producto -->
 					<h2>Insertar Usuario</h2>
 					Username: 
-					<input type="text" name="<%=User.USER_USERNAME_PARAM %>" required><br><br>
+					<input type = "text" name = "<%=User.USER_USERNAME_PARAM%>" required><br><br>
 					Email: 
-					<input type="text" name="<%=User.USER_EMAIL_PARAM %>" required><br><br>
+					<input type="text" name = "<%=User.USER_EMAIL_PARAM%>" required><br><br>
 					Contrasena: 
-					<input type="text" name="<%=User.USER_PASSWORD_PARAM %>" required><br><br>
+					<input type = "text" name = "<%=User.USER_PASSWORD_PARAM%>" required><br><br>
 					Biography
-					<input type="text" name="<%=User.USER_BIOGRAPHY_PARAM %>" required><br><br>
+					<input type = "text" name = "<%=User.USER_BIOGRAPHY_PARAM%>" required><br><br>
 					Address: 
-					<input type="text" name="<%=User.USER_ADDRESS_PARAM %>" required><br><br>
+					<input type = "text" name = "<%=User.USER_ADDRESS_PARAM%>" required><br><br>
 					
-					<input type="hidden" name="<%= Controller.PARAM_ACTION_ID %>" value="<%=ActionInsertion.PARAM_INSERT%>">
-					<input type = "hidden" name = "<%=ActionInsertion.PARAM_INSERT%>" valor = "<%=ActionInsertion.PARAM_INSERT_USER%>"/>
-					<input type="submit" value="Insertar"><br><br>
+					<input type = "hidden" name = "<%=Controller.PARAM_ACTION_ID %>" value = "<%=ActionInsertion.PARAM_INSERT%>">
+					<input type = "hidden" name = "<%=ActionInsertion.PARAM_INSERT%>" value = "<%=ActionInsertion.PARAM_INSERT_USER%>"/>
+					<input type = "submit" value = "Insertar"><br><br>
 				</form>
 			</article>
 			
@@ -141,7 +141,7 @@
 					<input type="text" name="<%=Product.PRODUCT_PRICE_PARAM%>" required><br><br>
 					
 					<input type="hidden" name="<%= Controller.PARAM_ACTION_ID %>" value="<%=ActionInsertion.PARAM_INSERT%>"> 
-					<input type = "hidden" name = "<%=ActionInsertion.PARAM_INSERT%>" valor = "<%=ActionInsertion.PARAM_INSERT_PRODUCT%>"/>
+					<input type = "hidden" name = "<%=ActionInsertion.PARAM_INSERT%>" value = "<%=ActionInsertion.PARAM_INSERT_PRODUCT%>"/>
 					<input type="submit" value="Insertar"><br><br>
 				</form>
 			</article>
@@ -160,7 +160,7 @@
 					<input type="date" name="<%=Vote.VOTE_DATE_PARAM%>" required><br><br>
 					
 					<input type="hidden" name="<%= Controller.PARAM_ACTION_ID %>" value="<%=ActionInsertion.PARAM_INSERT%>">
-					<input type = "hidden" name = "<%=ActionInsertion.PARAM_INSERT%>" valor = "<%=ActionInsertion.PARAM_INSERT_VOTE%>"/>
+					<input type = "hidden" name = "<%=ActionInsertion.PARAM_INSERT%>" value = "<%=ActionInsertion.PARAM_INSERT_VOTE%>"/>
 					<input type="submit" value="Insertar"><br><br>
 				</form>
 			</article>
@@ -176,13 +176,15 @@
 					<input type="text" name="<%=Comment.COMMENT_VOTE_ID_PARAM%>" required><br><br>
 					
 					<input type="hidden" name="<%= Controller.PARAM_ACTION_ID %>" value="<%=ActionInsertion.PARAM_INSERT%>">
-					<input type = "hidden" name = "<%=ActionInsertion.PARAM_INSERT%>" valor = "<%=ActionInsertion.PARAM_INSERT_COMMENT%>"/>
+					<input type = "hidden" name = "<%=ActionInsertion.PARAM_INSERT%>" value = "<%=ActionInsertion.PARAM_INSERT_COMMENT%>"/>
 					<input type="submit" value="Insertar"><br><br>
 				</form>
 			</article>
 		
+		<%}
+		else{%>
+			Usuario sin PERMISO.
 		<%}%>
-		
 		</section>
 		
 		<footer>

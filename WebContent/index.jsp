@@ -41,7 +41,7 @@
 			
 			<ul id = "horizontal-top-bar-general">
 				<li><a href="index.jsp?<%=User.USER_PARAM%>=<%=user%>" title="">Catalogo</a></li>
-				<li><a href="html_jsp/insercion.jsp?<%=User.USER_PARAM%>=<%=user%>" title="">Insertar</a></li>
+				<li><a href="html_jsp/insertion.jsp?<%=User.USER_PARAM%>=<%=user%>" title="">Insertar</a></li>
 				<li><a href="#" title="">Contacto</a></li>
 			</ul>
 			
