@@ -31,8 +31,8 @@
 		
 		<header>
 			<hgroup>
-				<h1>Ejercicio 1 - HTML5</h1>
-				<h2>Maquetaciï¿½n sencilla con HTML5 y algo de CSS3.</h2>
+				<h1>Inicio</h1>
+				<h2>Inicio de la pagina web Rafura</h2>
 			</hgroup>
 		</header>
 
@@ -40,8 +40,8 @@
 		<nav id = "horizontal-top-bar">
 			
 			<ul id = "horizontal-top-bar-general">
-				<li><a href="#" title="">Inicio</a></li>
-				<li><a href="#" title="">Noticias</a></li>
+				<li><a href="index.jsp?<%=User.USER_PARAM%>=<%=user%>" title="">Catalogo</a></li>
+				<li><a href="html_jsp/insercion.jsp?<%=User.USER_PARAM%>=<%=user%>" title="">Insertar</a></li>
 				<li><a href="#" title="">Contacto</a></li>
 			</ul>
 			

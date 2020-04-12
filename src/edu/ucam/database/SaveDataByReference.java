@@ -19,7 +19,7 @@ import edu.ucam.classes.Product;
 import edu.ucam.classes.User;
 import edu.ucam.classes.Vote;
 
-public class SaveDataByReference {
+public class SaveDataByReference{
 	
 	public static void Product(Product p) {
 		
@@ -31,13 +31,15 @@ public class SaveDataByReference {
             doc.getDocumentElement().normalize();
             NodeList productsList =  doc.getElementsByTagName("product");
 		
+            //Generate Id to the new object
             Node node = productsList.item(productsList.getLength()-1);
             Element element = (Element)node;
             Product.generateIdByReference(p, element.getElementsByTagName("id").item(0).getTextContent());
-		
+            
+            
+            //Add Element to DDBB
             Element rootElement = (Element) doc.getElementsByTagName("products");
 
-            //Add Element to DDBB
             Element product = doc.createElement("product");
 			rootElement.appendChild(product);
 
