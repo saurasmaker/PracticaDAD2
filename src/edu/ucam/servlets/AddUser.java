@@ -47,7 +47,7 @@ public class AddUser extends HttpServlet {
 			ArrayList<String> usersReferences = new ArrayList<String>();
 			LoadDataReferences.loadUsersReferences(usersReferences);	
 		
-			User.generateIdByReference(newUser, usersReferences.get(usersReferences.size()-1));
+			User.generateIdByReference(newUser, usersReferences);
 		
 			SaveDataByReference.User(newUser);
 		}

@@ -40,4 +40,22 @@
 		<img_path>Funda_Silicona_Mando_PS4.png</img_path>
 	</product>
 
+<product>
+    <id>P4</id>
+    <name>nuevo producto</name>
+    <model>producto</model>
+    <trademark>nuevo</trademark>
+    <description>prueba de un nuevo producto</description>
+    <img_path>kda-akali-evelynn-ahri-kaisa-lol-11-4k.jpg</img_path>
+    <price>23.04</price>
+  </product>
+<product>
+    <id>P5</id>
+    <name>qwer</name>
+    <model>qwer</model>
+    <trademark>qwer</trademark>
+    <description>qwer</description>
+    <img_path>tigre.png</img_path>
+    <price>0.04</price>
+  </product>
 </products>

@@ -110,7 +110,8 @@ public static User user(String id) {
                 		vote = new Vote();
                         vote.setId(element.getElementsByTagName("id").item(0).getTextContent());
                         vote.setAssessment(Integer.parseInt(element.getElementsByTagName("assessment").item(0).getTextContent()));
-                        vote.setDate(new SimpleDateFormat("dd/MM/yyyy").parse(element.getElementsByTagName("date").item(0).getTextContent()));
+                        try{vote.setDate(new SimpleDateFormat("dd/MM/yyyy").parse(element.getElementsByTagName("date").item(0).getTextContent()));}
+                        catch(Exception t) {vote.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("01/01/0001"));}
                         vote.setProductId(element.getElementsByTagName("productId").item(0).getTextContent());
                         vote.setUserId(element.getElementsByTagName("userId").item(0).getTextContent());
                  

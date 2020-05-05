@@ -1,7 +1,6 @@
 package edu.ucam.servlets;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -12,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import edu.ucam.classes.Comment;
-import edu.ucam.classes.User;
 import edu.ucam.classes.Vote;
 import edu.ucam.database.LoadDataReferences;
 import edu.ucam.database.SaveDataByReference;
@@ -39,14 +37,16 @@ public class AddVoteAndComment extends HttpServlet {
 		Vote newVote = new Vote();
 		newVote.setProductId(request.getParameter(Vote.VOTE_PRODUCT_PARAM));
 		newVote.setUserId(request.getParameter(Vote.VOTE_USER_PARAM));
-		newVote.setAssessment(Integer.parseInt(request.getParameter(Vote.VOTE_ASSESSMENT_PARAM)));
+		String assessment = request.getParameter(Vote.VOTE_ASSESSMENT_PARAM);
 		try {newVote.setDate(new Date());}catch(Exception t) {newVote.setDate(null);}
 			
 		if(newVote.getAssessment()!=null) {
+			newVote.setAssessment(Integer.parseInt(assessment));
+			
 			ArrayList<String> votesReferences = new ArrayList<String>();
-			LoadDataReferences.loadUsersReferences(votesReferences);	
+			LoadDataReferences.loadVotesReferences(votesReferences);	
 		
-			Vote.generateIdByReference(newVote, votesReferences.get(votesReferences.size()-1));
+			Vote.generateIdByReference(newVote, votesReferences);
 			
 			Comment newComment = null;
 			String resume;
@@ -61,7 +61,7 @@ public class AddVoteAndComment extends HttpServlet {
 				ArrayList<String> commentsReferences = new ArrayList<String>();
 				LoadDataReferences.loadCommentsReferences(commentsReferences);	
 			
-				Comment.generateIdByReference(newComment, commentsReferences.get(commentsReferences.size()-1));
+				Comment.generateIdByReference(newComment, commentsReferences);
 				
 				SaveDataByReference.Comment(newComment);
 			}

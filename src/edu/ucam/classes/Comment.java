@@ -29,14 +29,26 @@ public class Comment {
 	//Static Methods
 	static public void generateId(Comment comment, ArrayList<Comment> comments) {
 		//Id Example -> C12223245; The id of the comments have 1 character 'C' and 8 numbers.
+		
+		if(!(comments.size() > 0)) {
+			comment.setId("C0");
+			return;
+		}
+		
 		String newId = "C" + (Integer.parseInt(comments.get(comments.size()-1).getId().substring(1))+1);
 		comment.setId(newId);
 			
 		return;
 	}
 
-	static public void generateIdByReference(Comment comment, String previus) {
-		//Id Example -> C12223245; The id of the comments have 1 character 'C' and 8 numbers.
+	static public void generateIdByReference(Comment comment, ArrayList<String> comments) {
+		//Id Example -> C12223245; The id of the comments have 1 character 'C' and 8 numbers.	
+		if(!(comments.size() > 0)) {
+			comment.setId("C0");
+			return;
+		}
+		
+		String previus = comments.get(comments.size()-1);
 		String newId = "C" + (Integer.parseInt(previus.substring(1))+1);
 		comment.setId(newId);
 		

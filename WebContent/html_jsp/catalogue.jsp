@@ -1,140 +1,132 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
- 
-<%@ page import="java.util.ArrayList" %>
 <%@ page import = "edu.ucam.classes.*" %>
-<%@ page import = "edu.ucam.servlets.*" %>
 <%@ page import = "edu.ucam.database.*" %>
+<%@ page import = "java.util.ArrayList" %>
 
-<!DOCTYPE html>
-<html lang="es">
-
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<title>Rafura - Error</title>
-		
-		<!-- CSS -->
-		<link href="css/reset.css" rel="stylesheet" type="text/css" />
-		<link href="css/liquid.css" rel="stylesheet" type="text/css" />
-		<link href="css/navigation_top_bar.css" rel="stylesheet" type="text/css" />
-		<link href="css/loginPopup.css" rel="stylesheet" type="text/css" />
-		
-	</head>
-
-	<body>
+<div class = "row" style = "padding-top: 15px; padding-left: 30px ; padding-right: 30px; height: 100%; ">
 	
-		<%
-			User user = (User)request.getSession().getAttribute(User.USER_PARAM);
-		%>
-		
-		<header>
-			<hgroup>
-				<h1>Ejercicio 1 - HTML5</h1>
-				<h2>Maquetaciï¿½n sencilla con HTML5 y algo de CSS3.</h2>
-			</hgroup>
-		</header>
-
-
-		<nav id = "horizontal-top-bar">
-			<ul id = "horizontal-top-bar-general">
-				<li><a href="#" title="">Inicio</a></li>
-				<li><a href="#" title="">Noticias</a></li>
-				<li><a href="#" title="">Contacto</a></li>
-			</ul>
-			<ul id = "login-shoppingbasket-btn">
-				<li><a href="html_jsp/login.jsp" title="">
-					<%
-						if (user != null){
-							out.println(user.getUsername());
-						}
-						else{
-							out.println("Login");
-						}		
-					%></a>
-					<%
-					if (user != null){
-						out.println("<ul><li><a name=\"Controller.PARAM_ACTION_ID\" value=\"Controller.PARAM_LOGOUT_ACTION\" id = \"logout\" href=\" + request.getContextPath() + \"/Controller>Salir</a></li></ul>");
-					}
-					%>
-				</li>
-					
-			</ul>
-		</nav>
-
-		<aside>
+	<div class = "col-12">
+		<h3 class = "display-2 text-center">Catálogo</h3>
+		<hr width = "75%"/>
+		<br/>
+	</div>
+							
+	<%
+		User currentUser = null;
+		try{
+			currentUser = (User)request.getSession().getAttribute(User.USER_PARAM);
+		}catch(Exception t){
 			
-			<nav>
-				<h3>Oros ejercicios</h3>
+		}
+		ArrayList<String> productsReferences = new ArrayList<String>();
+		ArrayList<Vote> votes = new ArrayList<Vote>();
+		ArrayList<Comment> comments = new ArrayList<Comment>();
+		LoadData.loadVotes(votes);
+		LoadData.loadComments(comments);
+		LoadDataReferences.loadProductsReferences(productsReferences);
+		
+					
+		for(int i = 0; i < productsReferences.size(); ++i){
+			Product p = LoadDataByReference.product(productsReferences.get(i));
+
+	%>
+					
+	<div class="col-lg-4 col-md-6 col-sm-12" style = "padding-bottom: 10px;">
+		<h2><%=p.getName()%></h2>
+			
+		<div class = "row">
+			<div class = "col-6">
 				<ul>
-					<li><a href="#" title="#">Lorem ipsum</a></li>
-					<li><a href="#" title="#">Dolor sit amet</a></li>
-					<li><a href="#" title="#">Consectetur adipisicing</a></li>
+					<li><strong>Marca:</strong> <%try{out.println(p.getTrademark());}catch(Exception t){out.println("Not Found");}%></li>
+					<li><strong>Modelo:</strong> <%try{out.println(p.getModel());}catch(Exception t){out.println("Not Found");}%></li>
+					<li><strong>Precio:</strong> <%try{out.println(p.getPrice().toString() + " Euro(s)");}catch(Exception t){out.println("Not Found");}%></li>
 				</ul>
-			</nav>
-			
-			
-			<article>
-				<h4>Para recordar!</h4>
-				<p>Tenemos una lista de todos los tags utilizables en HTML5 en la web <a href="http://www.w3schools.com/html5/html5_reference.asp" title="#">w3schools</a></p>
-			
-			</article>
-			
-			
-			<article><h4>Documentaciï¿½n CSS3</h4>
-				<p>En este ejercicio se ha utilizado un poco de CSS3:</p>
-				<ul>
-					<li>En los degradados del header y footer <a href="http://gradients.glrzad.com/" title="#">(Documentaciï¿½n)</a></li>
-					<li>En las sombras del body <a href="http://www.css3.info/preview/box-shadow/" title="#">(Documentaciï¿½n)</a></li>
-					<li>En el texto del header <a href="http://www.w3schools.com/css3/css3_pr_text-shadow.asp" title="#">(Documentaciï¿½n)</a></li>
-				</ul>
+			</div>
 				
-			</article>
+			<div class ="col-6">
+				
+				<img src = "img/products/<%=p.getImg_path()%>" alt = "<%=p.getImg_path()%>" width = "130px">
+				
+			</div>
+				
+			<div class = "col-12">
+				<div>
+					<p align = "justify"><%try{out.println(p.getDescription());}catch(Exception t){out.println("Not Found");}%></p>
+				</div>
+			</div>
 			
-		</aside>
-
-
-
-		<section>
-		<h1>Catálogo</h1>
-				
-					
-				<% 
-				ArrayList<String> productsReferences = new ArrayList<String>();
-					
-				LoadDataReferences.loadProductsReferences(productsReferences, getServletContext().getRealPath("/"));
-					
-				for(int i = 0; i < productsReferences.size(); ++i){
-					Product p = LoadDataByReference.product(productsReferences.get(i), getServletContext().getRealPath("/"));
-				%>
-					
-				<article class="content">
-				<h2><%=p.getName()%></h2>
-				
+			<div class = "col-12" style = "">
 				<p>
-					<%=p.getDescription()%>
+				<%if(currentUser!=null){ %>
+  					<a class="btn btn-primary" data-toggle="collapse" href="#collapse<%=i%>vote" role="button" aria-expanded="false" aria-controls="collapseExample">
+    					Votar
+  					</a>
+  					<%} %>
+  					<a class="btn btn-primary" data-toggle="collapse" href="#collapse<%=i%>comments" role="button" aria-expanded="false" aria-controls="collapseExample">
+    					Todos los Votos
+  					</a>
 				</p>
+				<%if(currentUser!=null){ %>
+				<div class="collapse" id="collapse<%=i%>vote">
+  					<form class="card card-body"  action = "<%=request.getContextPath()%>/AddVote" method = "post">
+  						<div>
+  							<p>Estrellas:
+  								<input type="radio" name="<%=Vote.VOTE_ASSESSMENT_PARAM %>" value="1" required/>1
+            					<input type="radio" name="<%=Vote.VOTE_ASSESSMENT_PARAM %>" value="2"/>2
+            					<input type="radio" name="<%=Vote.VOTE_ASSESSMENT_PARAM %>" value="3"/>3
+            					<input type="radio" name="<%=Vote.VOTE_ASSESSMENT_PARAM %>" value="4"/>4
+            					<input type="radio" name="<%=Vote.VOTE_ASSESSMENT_PARAM %>" value="5"/>5
+            				</p>
+  						</div>
+  						
+    					<label for="input-resume">Asunto: </label>
+						<p><input id = "input-resume" type = "text" class="form-control" placeholder = "Introduce el asunto del comentario..." name = "<%=Comment.COMMENT_RESUME_PARAM%>" required></p>
+						
+						<label for="input-content">Contenido: </label>
+						<p><textarea id = "input-content" class="form-control" placeholder = "Introduce el contenido del comentario..." name = "<%=Comment.COMMENT_CONTENT_PARAM %>" required></textarea></p>					
+
+						<input type = "hidden" name = "<%=Vote.VOTE_PRODUCT_PARAM %>" value = "<%=p.getId()%>">
+						<input type = "hidden" name = "<%=Vote.VOTE_USER_PARAM %>" value = "<%=currentUser.getId()%>">
+
+    					<input type = "submit" value = "Enviar">
+  					</form>
+				</div>
+				<%} %>
+				<div class="collapse" id="collapse<%=i%>comments">
+  					<div class="card card-body">
+  						<%for(Vote v: votes){
+  	  						User userOfVote = LoadDataByReference.user(v.getUserId()); 
+  	  						if(v.getProductId().equals(p.getId())){	
+  	  					%>
+  	  					<p><strong><%if(userOfVote!=null)out.println(userOfVote.getUsername());else out.println("NULL");%>: </strong><%=v.getAssessment().toString()%> Estrellas. </p>
+  	  					
+  	  						<%
+  	  							for(Comment c: comments){
+  	  								if(c.getVoteId().equals(v.getId())){
+  	  						%>
+  	  							<label for="comment-content"><strong><%=c.getResume()%></strong></label>
+								<p><textarea style = "resize:none;" id = "comment-content" class="form-control" name = "<%=Product.PRODUCT_DESCRIPTION_PARAM %>" required readonly><%=c.getContent()%></textarea></p>
+						
+  	  							
+  	  						<%}} %>
+  	  					<p><%if(v.getDate()!=null)out.println(v.getDate().toString()); %></p>
+  	  					<hr/>
+  	  					<%}} %>
+    					
+  					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+
 				
-				<p>
-					- Marca: <%=p.getTrademark()%>
-					<br/>
-					- Modelo: <%=p.getModel()%>
-					<br/>
-					- Precio: <%=p.getPrice().toString()%> Euro(s)
-				</p>
-				
-				</article>
-					
-				<%}%>	
-					
-	
-		</section>
 
-		<footer>
-			<p>Fin del ejercicio</p>
-		</footer>
-		
-		
-	</body>
+<%}%>	
+
+</div>	
+
+<br/><br/>
 
 
-</html>
+
+    
+    

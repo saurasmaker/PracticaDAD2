@@ -37,14 +37,26 @@ public class Product {
 	//Static Methods
 	static public void generateId(Product product, ArrayList<Product> products) {
 		//Id Example -> P12223245; The id of the products have 1 character 'P' and 8 numbers.
+		
+		if(!(products.size() > 0)) {
+			product.setId("P0");
+			return;
+		}
+		
 		String newId = "P" + (Integer.parseInt(products.get(products.size()-1).getId().substring(1))+1);
 		product.setId(newId);
 		
 		return;
 	}
 	
-	static public void generateIdByReference(Product product, String previus) {
-		//Id Example -> P12223245; The id of the products have 1 character 'P' and 8 numbers.
+	static public void generateIdByReference(Product product, ArrayList<String> products) {
+		//Id Example -> P12223245; The id of the products have 1 character 'P' and 8 numbers.	
+		if(!(products.size() > 0)) {
+			product.setId("P0");
+			return;
+		}
+		
+		String previus = products.get(products.size()-1);
 		String newId = "P" + (Integer.parseInt(previus.substring(1))+1);
 		product.setId(newId);
 		

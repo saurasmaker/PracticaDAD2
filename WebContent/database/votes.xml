@@ -1,54 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <votes>
-	<vote>
-		<id>V0</id>
-		<userId>U0</userId>
-		<productId>P0</productId>
-		<assessment>5</assessment>
-		<date>19/11/2008</date>
-	</vote>
+	
+  <vote>
+    <id>V0</id>
+    <userId>prueba</userId>
+    <productId>P0</productId>
+    <assessment>5</assessment>
+    <date>05/05/2020</date>
+  </vote>
 
-<vote>
+  <vote>
     <id>V1</id>
-    <userId>U1</userId>
+    <userId>prueba</userId>
     <productId>P0</productId>
     <assessment>4</assessment>
-    <date>19/11/2008</date>
+    <date>05/05/2020</date>
   </vote>
 <vote>
     <id>V2</id>
-    <userId>prueba</userId>
-    <productId>P0</productId>
+    <userId>U5</userId>
+    <productId>P5</productId>
     <assessment>1</assessment>
-    <date>19/11/2008</date>
+    <date>05/05/2020</date>
   </vote>
-
 <vote>
     <id>V3</id>
-    <userId>prueba</userId>
-    <productId>P0</productId>
-    <assessment>2</assessment>
-    <date>02/05/2020</date>
+    <userId>C6</userId>
+    <productId>P2</productId>
+    <assessment>4</assessment>
+    <date/>
   </vote>
 <vote>
     <id>V4</id>
-    <userId>prueba</userId>
-    <productId>P1</productId>
-    <assessment>1</assessment>
-    <date>02/05/2020</date>
+    <userId>U2</userId>
+    <productId>P4</productId>
+    <assessment>4</assessment>
+    <date/>
   </vote>
 <vote>
     <id>V5</id>
-    <userId>prueba</userId>
-    <productId>P2</productId>
-    <assessment>3</assessment>
-    <date>02/05/2020</date>
-  </vote>
-<vote>
-    <id>V6</id>
-    <userId>prueba</userId>
-    <productId>P3</productId>
-    <assessment>4</assessment>
-    <date>02/05/2020</date>
+    <userId>U5</userId>
+    <productId>P5</productId>
+    <assessment>2</assessment>
+    <date>31/05/2020</date>
   </vote>
 </votes>

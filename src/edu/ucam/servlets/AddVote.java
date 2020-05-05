@@ -1,6 +1,7 @@
 package edu.ucam.servlets;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -36,14 +37,17 @@ public class AddVote extends HttpServlet {
 		Vote newVote = new Vote();
 		newVote.setProductId(request.getParameter(Vote.VOTE_PRODUCT_PARAM));
 		newVote.setUserId(request.getParameter(Vote.VOTE_USER_PARAM));
-		newVote.setAssessment(Integer.parseInt(request.getParameter(Vote.VOTE_ASSESSMENT_PARAM)));
-		try {newVote.setDate(new Date());}catch(Exception t) {newVote.setDate(null);}
-			
-		if(newVote.getAssessment()!=null) {
-			ArrayList<String> votesReferences = new ArrayList<String>();
-			LoadDataReferences.loadUsersReferences(votesReferences);	
+		String assessment = request.getParameter(Vote.VOTE_ASSESSMENT_PARAM);				
+		try {newVote.setDate(new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter(Vote.VOTE_DATE_PARAM)));}catch(Exception t) {newVote.setDate(null);}
 		
-			Vote.generateIdByReference(newVote, votesReferences.get(votesReferences.size()-1));
+		
+		if(assessment!=null) {
+			newVote.setAssessment(Integer.parseInt(assessment));
+						
+			ArrayList<String> votesReferences = new ArrayList<String>();
+			LoadDataReferences.loadVotesReferences(votesReferences);	
+		
+			Vote.generateIdByReference(newVote, votesReferences);
 			
 			SaveDataByReference.Vote(newVote);
 		}

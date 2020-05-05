@@ -90,7 +90,7 @@ public class AddProduct extends HttpServlet {
         	ArrayList<String> productsReferences = new ArrayList<String>();
         	LoadDataReferences.loadProductsReferences(productsReferences);	
 	
-        	Product.generateIdByReference(newProduct, productsReferences.get(productsReferences.size()-1));
+        	Product.generateIdByReference(newProduct, productsReferences);
 	
         	SaveDataByReference.Product(newProduct);
         }

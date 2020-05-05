@@ -1,34 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <comments>
-	<comment>
-		<id>C0</id>
-		<voteId>V0</voteId>
-		<resume>Resumén o título</resume>
-		<content>Contenido</content>
-	</comment>
 
+<comment>
+    <id>C0</id>
+    <voteId>V0</voteId>
+    <resume>Me gusta</resume>
+    <content>Buen producto</content>
+  </comment>
 <comment>
     <id>C1</id>
     <voteId>V1</voteId>
-    <resume>xcvb</resume>
-    <content>xcvb xcvb</content>
+    <resume>asdf</resume>
+    <content>asdf asdf</content>
   </comment>
 <comment>
     <id>C2</id>
-    <voteId>V2</voteId>
-    <resume>Muy buena calidad</resume>
-    <content>Me encanta la calidad de este producto</content>
-  </comment>
-<comment>
-    <id>C3</id>
-    <voteId>V4</voteId>
-    <resume>Hola</resume>
-    <content>Esto es una prueba de voto</content>
-  </comment>
-<comment>
-    <id>C4</id>
-    <voteId>V6</voteId>
-    <resume>Tnés un 4 por pelotudo</resume>
-    <content>Pelotudo. SIn más</content>
+    <voteId>V1</voteId>
+    <resume>asdf</resume>
+    <content>wqer</content>
   </comment>
 </comments>

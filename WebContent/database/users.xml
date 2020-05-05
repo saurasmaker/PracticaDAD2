@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE users>
 <users>
 	<user>
 		<id>U0</id>
@@ -53,5 +52,13 @@
     <password>asdf</password>
     <biography>NULL</biography>
     <address>Igualdad</address>
+  </user>
+<user>
+    <id>C6</id>
+    <username>nuevoUser</username>
+    <email>user@user.com</email>
+    <password>user</password>
+    <biography>NULL</biography>
+    <address>user user</address>
   </user>
 </users>

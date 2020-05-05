@@ -14,8 +14,6 @@ import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 
 import edu.ucam.classes.Comment;
 import edu.ucam.classes.Product;
@@ -38,12 +36,6 @@ public class SaveDataByReference{
             	
         }
         doc.getDocumentElement().normalize();
-        NodeList productsList =  doc.getElementsByTagName("product");
-		
-        //Generate Id to the new object
-        Node node = productsList.item(productsList.getLength()-1);
-        Element element = (Element)node;
-        Product.generateIdByReference(p, element.getElementsByTagName("id").item(0).getTextContent());
             
             
         //Add Element to DDBB
@@ -124,11 +116,7 @@ public class SaveDataByReference{
             	
         }
         doc.getDocumentElement().normalize();
-        NodeList productsList =  doc.getElementsByTagName("user");
-		
-        Node node = productsList.item(productsList.getLength()-1);
-        Element element = (Element)node;
-        User.generateIdByReference(u, element.getElementsByTagName("id").item(0).getTextContent());
+
 		
         Element rootElement = (Element) doc.getElementsByTagName("users").item(0);
 
@@ -201,11 +189,7 @@ public class SaveDataByReference{
         }
         
         doc.getDocumentElement().normalize();
-        NodeList productsList =  doc.getElementsByTagName("vote");
-		
-        Node node = productsList.item(productsList.getLength()-1);
-        Element element = (Element)node;
-        Vote.generateIdByReference(v, element.getElementsByTagName("id").item(0).getTextContent());
+
 		
         Element rootElement = (Element) doc.getElementsByTagName("votes").item(0);
 
@@ -275,11 +259,7 @@ public class SaveDataByReference{
         	
         }
         doc.getDocumentElement().normalize();
-        NodeList productsList =  doc.getElementsByTagName("comment");
-		
-        Node node = productsList.item(productsList.getLength()-1);
-        Element element = (Element)node;
-        Comment.generateIdByReference(c, element.getElementsByTagName("id").item(0).getTextContent());
+
 		
         Element rootElement = (Element) doc.getElementsByTagName("comments").item(0);
 

@@ -17,7 +17,7 @@ public class ProjectPath {
 		}
 		
 		for(int i = continueLoop; i < (splitedPath.length-2); ++i) {
-			if(splitedPath[i].equals("Practica_DAD_2_Entrega_2")) {
+			if(splitedPath[i].equals("Practica_DAD_2")) {
 				finalPath += splitedPath[i] + "/";
 				break;
 			}

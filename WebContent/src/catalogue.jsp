@@ -67,7 +67,7 @@
 				</p>
 				<%if(currentUser!=null){ %>
 				<div class="collapse" id="collapse<%=i%>vote">
-  					<form class="card card-body"  action = "<%=request.getContextPath()%>/AddVote" method = "post">
+  					<form class="card card-body"  action = "<%=request.getContextPath()%>/AddVoteAndComment" method = "post">
   						<div>
   							<p>Estrellas:
   								<input type="radio" name="<%=Vote.VOTE_ASSESSMENT_PARAM %>" value="1" required/>1

@@ -44,7 +44,7 @@ public class AddComment extends HttpServlet {
 			ArrayList<String> commentsReferences = new ArrayList<String>();
 			LoadDataReferences.loadCommentsReferences(commentsReferences);	
 		
-			Comment.generateIdByReference(newComment, commentsReferences.get(commentsReferences.size()-1));
+			Comment.generateIdByReference(newComment, commentsReferences);
 			
 			SaveDataByReference.Comment(newComment);
 		}

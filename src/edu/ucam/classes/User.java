@@ -32,17 +32,29 @@ public class User {
 	//Static Methods
 	static public void generateId(User user, ArrayList<User> users) {
 		//Id Example -> U12223245; The id of the users have 1 character 'U' and 8 numbers. If the user is an admin, the character will be a 'A'.
-		String newId = "" + (Integer.parseInt(users.get(users.size()-1).getId().substring(1))+1);
+		
+		if(!(users.size() > 0)) {
+			user.setId("U0");
+			return;
+		}
+		
+		String newId = "U" + (Integer.parseInt(users.get(users.size()-1).getId().substring(1))+1);
 		user.setId(newId);
 		
 		return;
 	}
 
-	static public void generateIdByReference(User user, String previus) {
+	static public void generateIdByReference(User user, ArrayList<String> users) {
 		//Id Example -> U12223245; The id of the users have 1 character 'U' and 8 numbers. If the user is an admin, the character will be a 'A'.
+		if(!(users.size() > 0)) {
+			user.setId("U0");
+			return;
+		}
+		
+		String previus = users.get(users.size()-1);
 		String newId = "U" + (Integer.parseInt(previus.substring(1))+1);
 		user.setId(newId);
-				
+		
 		return;
 	}
 	//Getters & Setters
