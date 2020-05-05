@@ -1,6 +1,8 @@
 package edu.ucam.database;
 
 import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -61,6 +63,10 @@ public class SaveData {
 				Element description = doc.createElement("description");
 				description.appendChild(doc.createTextNode(p.getDescription()));
 				product.appendChild(description);
+				
+				Element img_path = doc.createElement("img_path");
+				img_path.appendChild(doc.createTextNode(p.getImg_path()));
+				product.appendChild(img_path);
 				 
 				Element price = doc.createElement("price");
 				description.appendChild(doc.createTextNode(p.getPrice().toString()));
@@ -70,10 +76,9 @@ public class SaveData {
 				TransformerFactory transformerFactory = TransformerFactory.newInstance();
 				Transformer transformer = transformerFactory.newTransformer();
 				DOMSource source = new DOMSource(doc);
-				StreamResult result = new StreamResult(new File(System.getProperty("user.dir") + "/database/products.xml"));				 
+				StreamResult result = new StreamResult(new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/products.xml"));				 
 				transformer.transform(source, result);
 				 
-				System.out.println("Products saved!");
 			}
 		
 		} catch (ParserConfigurationException | TransformerException e) {
@@ -109,7 +114,7 @@ public class SaveData {
 				username.appendChild(doc.createTextNode(u.getUsername()));
 				user.appendChild(username);
 
-				Element email = doc.createElement("username");
+				Element email = doc.createElement("email");
 				email.appendChild(doc.createTextNode(u.getEmail()));
 				user.appendChild(email);
 				
@@ -117,9 +122,9 @@ public class SaveData {
 				password.appendChild(doc.createTextNode(u.getPassword()));
 				user.appendChild(password);
 				
-				Element byography = doc.createElement("byography");
-				byography.appendChild(doc.createTextNode(u.getBiography()));
-				user.appendChild(byography);
+				Element biography = doc.createElement("biography");
+				biography.appendChild(doc.createTextNode(u.getBiography()));
+				user.appendChild(biography);
 				
 				Element address = doc.createElement("address");
 				address.appendChild(doc.createTextNode(u.getAddress()));
@@ -129,10 +134,9 @@ public class SaveData {
 				TransformerFactory transformerFactory = TransformerFactory.newInstance();
 				Transformer transformer = transformerFactory.newTransformer();
 				DOMSource source = new DOMSource(doc);
-				StreamResult result = new StreamResult(new File(System.getProperty("user.dir") + "/database/users.xml"));				 
+				StreamResult result = new StreamResult(new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/users.xml"));				 
 				transformer.transform(source, result);
 				 
-				System.out.println("Users saved!");
 			}
 		
 		} catch (ParserConfigurationException | TransformerException e) {
@@ -176,7 +180,8 @@ public class SaveData {
 				vote.appendChild(assessment);
 				
 				Element date = doc.createElement("date");
-				date.appendChild(doc.createTextNode(v.getDate().toString()));
+				DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+				date.appendChild(doc.createTextNode(dateFormat.format(v.getDate())));
 				vote.appendChild(date);
 				
 				
@@ -184,10 +189,9 @@ public class SaveData {
 				TransformerFactory transformerFactory = TransformerFactory.newInstance();
 				Transformer transformer = transformerFactory.newTransformer();
 				DOMSource source = new DOMSource(doc);
-				StreamResult result = new StreamResult(new File(System.getProperty("user.dir") + "/database/votes.xml"));				 
+				StreamResult result = new StreamResult(new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/votes.xml"));				 
 				transformer.transform(source, result);
 				 
-				System.out.println("Votes saved!");
 			}
 		
 		} catch (ParserConfigurationException | TransformerException e) {
@@ -217,11 +221,15 @@ public class SaveData {
 				id.appendChild(doc.createTextNode(c.getId()));
 				comment.appendChild(id);
 				
-				Element resume = doc.createElement("id");
+				Element voteId = doc.createElement("voteId");
+				voteId.appendChild(doc.createTextNode(c.getVoteId()));
+				comment.appendChild(voteId);
+				
+				Element resume = doc.createElement("resume");
 				resume.appendChild(doc.createTextNode(c.getResume()));
 				comment.appendChild(resume);
 				
-				Element content = doc.createElement("id");
+				Element content = doc.createElement("content");
 				content.appendChild(doc.createTextNode(c.getContent()));
 				comment.appendChild(content);
 				
@@ -229,10 +237,9 @@ public class SaveData {
 				TransformerFactory transformerFactory = TransformerFactory.newInstance();
 				Transformer transformer = transformerFactory.newTransformer();
 				DOMSource source = new DOMSource(doc);
-				StreamResult result = new StreamResult(new File(System.getProperty("user.dir") + "/database/comments.xml"));				 
+				StreamResult result = new StreamResult(new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/comments.xml"));				 
 				transformer.transform(source, result);
 				 
-				System.out.println("Votes saved!");
 			}
 		
 		} catch (ParserConfigurationException | TransformerException e) {

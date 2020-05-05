@@ -1,14 +1,57 @@
-<?xml version = "1.0" encoding = "UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE users>
-
 <users>
 	<user>
-		<id>U00000000</id>
-		<username>nombre de usuario</username>
-		<email>email@user.com</email>
-		<password>contrasena</password>
-		<biography>Biografía del usuario.</biography>
-		<address>Dirección del usuario.</address>
+		<id>U0</id>
+		<username>userNAME</username>
+		<email>qwer@asdf.casm</email>
+		<password>contra</password>
+		<address>asdfasdf</address>
+		<biography>19/11/2008</biography>
+	</user>
+	
+	<user>
+    	<id>U1</id>
+    	<username>pruebadatabase</username>
+    	<email>correo@prueba.es</email>
+    	<password>contraseñadeprueba</password>
+    	<biography>Esto es una biografia para comprobar que todo funciona perfectamentes</biography>
+    	<address>direccion de prueba</address>
+	</user>
+	
+	<user>
+    	<id>U2</id>
+    	<username>pruebadatabase</username>
+    	<email>correo@prueba.es</email>
+    	<password>contraseñadeprueba</password>
+    	<biography>Esto es una biografia para comprobar que todo funciona perfectamentes</biography>
+    	<address>direccion de prueba</address>
 	</user>
 
+	<user>
+		<id>U3</id>
+    	<username>pruebadatabase</username>
+    	<email>correo@prueba.es</email>
+    	<password>contraseñadeprueba</password>
+    	<biography>Esto es una biografia para comprobar que todo funciona perfectamentes</biography>
+    	<address>direccion de prueba</address>
+	</user>
+
+	<user>
+    	<id>U4</id>
+    	<username>pruebadatabase</username>
+    	<email>correo@prueba.es</email>
+    	<password>contraseñadeprueba</password>
+    	<biography>Esto es una biografia para comprobar que todo funciona perfectamentes</biography>
+    	<address>direccion de prueba</address>
+  	</user>
+  	
+<user>
+    <id>U5</id>
+    <username>admin</username>
+    <email>saurasmaker@gmail.com</email>
+    <password>asdf</password>
+    <biography>NULL</biography>
+    <address>Igualdad</address>
+  </user>
 </users>

@@ -16,10 +16,12 @@ public class LoadDataReferences {
 	/***********LOAD REFERENCES*****************************************************************************************************/
 	/*******************************************************************************************************************************/
 	
-	public static void loadProductsReferences(ArrayList<String> products_references, String path) {
+	public static void loadProductsReferences(ArrayList<String> products_references) {
 		
 		try {
-			File file = new File(path + "database/products.xml");
+			
+			File file = new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/products.xml");
+			
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
             Document document = documentBuilder.parse(file);
@@ -41,9 +43,9 @@ public class LoadDataReferences {
 	}
 	
 	
-	public static void loadUsersReferences(ArrayList<String> users_references, String path) {
+	public static void loadUsersReferences(ArrayList<String> users_references) {
 		try {
-            File file = new File(System.getProperty("user.dir") + "/database/users.xml");
+            File file = new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/users.xml");
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
             Document document = documentBuilder.parse(file);
@@ -64,9 +66,9 @@ public class LoadDataReferences {
 		return;
 	}
 	
-	public static void loadVotesReferences(ArrayList<String> votes_references, String path) {
+	public static void loadVotesReferences(ArrayList<String> votes_references) {
 		try {
-            File file = new File(System.getProperty("user.dir") + "/database/votes.xml");
+            File file = new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/votes.xml");
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
             Document document = documentBuilder.parse(file);
@@ -87,9 +89,9 @@ public class LoadDataReferences {
 		return;
 	}
 	
-	public static void loadCommentsReferences(ArrayList<String> comments_references, String path) {
+	public static void loadCommentsReferences(ArrayList<String> comments_references) {
 		try {
-            File file = new File(System.getProperty("user.dir") + "/database/comments.xml");
+            File file = new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/comments.xml");
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
             Document document = documentBuilder.parse(file);
@@ -110,12 +112,12 @@ public class LoadDataReferences {
 		return;
 	}
 	
-	public static void loadDataReferences(ArrayList<String> users_references, ArrayList<String> products_references, ArrayList<String> votes_references, ArrayList<String> comments_references, String path) {
+	public static void loadDataReferences(ArrayList<String> users_references, ArrayList<String> products_references, ArrayList<String> votes_references, ArrayList<String> comments_references) {
 		
-		loadProductsReferences(products_references, path);
-		loadUsersReferences(users_references, path);
-		loadVotesReferences(votes_references, path);
-		loadCommentsReferences(comments_references, path);
+		loadProductsReferences(products_references);
+		loadUsersReferences(users_references);
+		loadVotesReferences(votes_references);
+		loadCommentsReferences(comments_references);
 		
 		return;
 	}

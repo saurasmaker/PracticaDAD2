@@ -1,5 +1,6 @@
 package edu.ucam.classes;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -34,7 +35,7 @@ public class Vote {
 	//Static Methods
 	static public void generateId(Vote vote, ArrayList<Vote> votes) {
 		//Id Example -> V12223245; The id of the comments have 1 character 'V' and 8 numbers.
-		String newId = "" + (Integer.parseInt(votes.get(votes.size()-1).getId().substring(1))+1);
+		String newId = "V" + (Integer.parseInt(votes.get(votes.size()-1).getId().substring(1))+1);
 		vote.setId(newId);
 			
 		return;
@@ -43,7 +44,7 @@ public class Vote {
 	
 	static public void generateIdByReference(Vote vote, String previus) {
 		//Id Example -> V12223245; The id of the comments have 1 character 'V' and 8 numbers.
-		String newId = "" + (Integer.parseInt(previus.substring(1))+1);
+		String newId = "V" + (Integer.parseInt(previus.substring(1))+1);
 		vote.setId(newId);
 			
 		return;

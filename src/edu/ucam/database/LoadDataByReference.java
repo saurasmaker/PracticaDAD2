@@ -18,12 +18,12 @@ import edu.ucam.classes.Vote;
 
 public class LoadDataByReference {
 	
-	public static Product product(String id, String path) {
+	public static Product product(String id) {
 		
 		Product product = null;
 		
 		try {
-			File file = new File(path + "database/products.xml");
+			File file = new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/products.xml");
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
             Document document = documentBuilder.parse(file);
@@ -41,6 +41,7 @@ public class LoadDataByReference {
                         product.setModel(element.getElementsByTagName("model").item(0).getTextContent());
                         product.setTrademark(element.getElementsByTagName("trademark").item(0).getTextContent());
                         product.setDescription(element.getElementsByTagName("description").item(0).getTextContent());
+                        product.setImg_path(element.getElementsByTagName("img_path").item(0).getTextContent());
                         try{product.setPrice(Float.parseFloat(element.getElementsByTagName("price").item(0).getTextContent()));}
                         catch(Exception e){product.setPrice((float)0.0);}
                     }
@@ -54,12 +55,12 @@ public class LoadDataByReference {
 	}
 	
 	
-public static User user(String id, String path) {
+public static User user(String id) {
 		
 		User user = null;
 		
 		try {
-            File file = new File(path + "/database/users.xml");
+            File file = new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/users.xml");
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
             Document document = documentBuilder.parse(file);
@@ -76,7 +77,7 @@ public static User user(String id, String path) {
                         user.setUsername(element.getElementsByTagName("username").item(0).getTextContent());
                         user.setEmail(element.getElementsByTagName("email").item(0).getTextContent());
                         user.setPassword(element.getElementsByTagName("password").item(0).getTextContent());
-                        user.setBiography(element.getElementsByTagName("byography").item(0).getTextContent());
+                        user.setBiography(element.getElementsByTagName("biography").item(0).getTextContent());
                         user.setAddress(element.getElementsByTagName("address").item(0).getTextContent());    
                     }
                 }
@@ -89,12 +90,12 @@ public static User user(String id, String path) {
 	}
 
 
-	public static Vote vote(String id, String path) {
+	public static Vote vote(String id) {
 	
 		Vote vote = null;
 	
 		try {
-        	File file = new File(path + "/database/votes.xml");
+        	File file = new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/votes.xml");
         	DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         	DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
         	Document document = documentBuilder.parse(file);
@@ -123,12 +124,12 @@ public static User user(String id, String path) {
 		return vote;
 	}
 	
-	public static Comment comment(String id, String path) {
+	public static Comment comment(String id) {
 		
 		Comment comment = null;
 	
 		try {
-        	File file = new File(path + "/database/comments.xml");
+        	File file = new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/comments.xml");
         	DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         	DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
         	Document document = documentBuilder.parse(file);

@@ -1,25 +1,43 @@
-<?xml version = "1.0" encoding = "UTF-8"?>
-<!DOCTYPE products>
-
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <products>
 	<product>
-		<id>P00000000</id>
-		<name>nombre</name>
-		<trademark>marca</trademark>
-		<model>modelo</model>
-		<description>descripcion del producto.</description>
-		<price>0.21</price>
+		<id>P0</id>
+		<name>Mando PS4 Negro</name>
+		<model>Dualshock 4</model>
+		<trademark>Sony</trademark>
+		<description>Mando ps4 de color negro inalámbrico</description>
+		<price>44.95</price>
+		<img_path>Mando_PS4.png</img_path>
+	</product>
+	
+	<product>
+		<id>P1</id>
+		<name>PS4 Pro Negra 1TB</name>
+		<model>PlayStation 4 Pro</model>
+		<trademark>Sony</trademark>
+		<description>Consola ps4 con un 1tb de capacidad de almacenamiento.</description>
+		<price>349.95</price>
+		<img_path>PlayStation4.png</img_path>
+	</product>
+	
+	<product>
+		<id>P2</id>
+		<name>XBOX ONE 2TB</name>
+		<model>XBOX ONE</model>
+		<trademark>Microsoft</trademark>
+		<description>Consola XBOX ONE con un 2tb de capacidad de almacenamiento.</description>
+		<price>249.95</price>
+		<img_path>XBOX_ONE.png</img_path>
+	</product>
+	
+	<product>
+		<id>P3</id>
+		<name>Funda Silicona Mando PS4</name>
+		<model>Funda Dualshock 4</model>
+		<trademark>Fundazas</trademark>
+		<description>Funda de color naranja de silicona para Mando ps4</description>
+		<price>9.95</price>
+		<img_path>Funda_Silicona_Mando_PS4.png</img_path>
 	</product>
 
-	<product>
-		<id>P00000001</id>
-		<name>Prueba 1</name>
-		<trademark>Turno</trademark>
-		<model>Modelaje</model>
-		<description>
-			descripcion del producto. Pues nada aquí estoy poniendo una descripción algo larga para comprobar que todo 
-			funciona perfectamente y ver como se vería esta descripción en la JSP
-		</description>
-		<price>72.84</price>
-	</product>
 </products>

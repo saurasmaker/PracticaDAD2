@@ -20,7 +20,21 @@
 
         	<jsp:include page="/src/header.jsp"></jsp:include>
 
-			<jsp:include page = "/src/catalogue.jsp"></jsp:include>
+			<div class = "row" style = "padding: 30px;">
+				<div class = "col-12">
+					<h3 class = "display-2 text-center">Acceso Denegado</h3>
+					<hr width = "75%"/>
+					<br/>
+				</div>
+		
+				<div class = "col-12">
+					<p>
+						Parece que has intentado acceder a una de nuestras páginas para administradores y no eres uno de ellos.
+					</p>
+				</div>
+		
+			</div>
+			
 
 			<jsp:include page = "/src/login_form.jsp"></jsp:include>
 			<jsp:include page = "/src/register_form.jsp"></jsp:include>

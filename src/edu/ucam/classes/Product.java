@@ -6,25 +6,29 @@ public class Product {
 
 	
 	//Static Atributes
-	public static String PRODUCT_PARAM = "PRODUCT_PARAM", PRODUCT_PARAM_NAME = "PRODUCT_PARAM_NAME", PRODUCT_TRADEMARK_PARAM = "PRODUCT_TRADEMARK_PARAM", PRODUCT_MODEL_PARAM = "PRODUCT_MODEL_PARAM", 
-		PRODUCT_ID_PARAM = "PRODUCT_ID_PARAM", PRODUCT_DESCRIPTION_PARAM = "PRODUCT_DESCRIPTION_PARAM", PRODUCT_PRICE_PARAM = "PRODUCT_PRICE_PARAM";
+	public static String PRODUCT_PARAM = "PRODUCT_PARAM", PRODUCT_PARAM_NAME = "PRODUCT_PARAM_NAME", 
+		PRODUCT_TRADEMARK_PARAM = "PRODUCT_TRADEMARK_PARAM", PRODUCT_MODEL_PARAM = "PRODUCT_MODEL_PARAM", 
+		PRODUCT_ID_PARAM = "PRODUCT_ID_PARAM", PRODUCT_DESCRIPTION_PARAM = "PRODUCT_DESCRIPTION_PARAM", 
+		PRODUCT_PRICE_PARAM = "PRODUCT_PRICE_PARAM", PRODUCT_IMG_PARAM = "PRODUCT_IMG_PARAM", 
+		PRODUCT_IMG_PATH_PARAM = "PRODUCT_IMG_PATH_PARAM", PRODUCT_IMG_NAME_PARAM = "PRODUCT_IMG_NAME_PARAM";
 		
 	
 	
 	//Attributes
-	String name, trademark, model, description, id;
+	String name, trademark, model, description, img_path, id;
 	Float price;
 	
 	//Constructors
 	public Product() {
 	}
 	
-	public Product(String name, String trademark, String model, String desription, Float price, String id){
+	public Product(String name, String trademark, String model, String desription, Float price, String img_path, String id){
 		this.name = name;
 		this.trademark = trademark;
 		this.model = model;
 		this.description = desription;
 		this.price = price;
+		this.img_path = img_path;
 		this.id = id;
 	}
 	
@@ -33,7 +37,7 @@ public class Product {
 	//Static Methods
 	static public void generateId(Product product, ArrayList<Product> products) {
 		//Id Example -> P12223245; The id of the products have 1 character 'P' and 8 numbers.
-		String newId = "" + (Integer.parseInt(products.get(products.size()-1).getId().substring(1))+1);
+		String newId = "P" + (Integer.parseInt(products.get(products.size()-1).getId().substring(1))+1);
 		product.setId(newId);
 		
 		return;
@@ -41,7 +45,7 @@ public class Product {
 	
 	static public void generateIdByReference(Product product, String previus) {
 		//Id Example -> P12223245; The id of the products have 1 character 'P' and 8 numbers.
-		String newId = "" + (Integer.parseInt(previus.substring(1))+1);
+		String newId = "P" + (Integer.parseInt(previus.substring(1))+1);
 		product.setId(newId);
 		
 		return;
@@ -89,6 +93,15 @@ public class Product {
 
 	public String getId() {
 		return id;
+	}
+	
+
+	public String getImg_path() {
+		return img_path;
+	}
+
+	public void setImg_path(String img_path) {
+		this.img_path = img_path;
 	}
 
 	public void setId(String id) {
