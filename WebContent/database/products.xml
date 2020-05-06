@@ -10,15 +10,7 @@
 		<img_path>Mando_PS4.png</img_path>
 	</product>
 	
-	<product>
-		<id>P1</id>
-		<name>PS4 Pro Negra 1TB</name>
-		<model>PlayStation 4 Pro</model>
-		<trademark>Sony</trademark>
-		<description>Consola ps4 con un 1tb de capacidad de almacenamiento.</description>
-		<price>349.95</price>
-		<img_path>PlayStation4.png</img_path>
-	</product>
+	
 	
 	<product>
 		<id>P2</id>

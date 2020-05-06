@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <comments>
 
-<comment>
-    <id>C0</id>
-    <voteId>V0</voteId>
-    <resume>Me gusta</resume>
-    <content>Buen producto</content>
-  </comment>
+
 <comment>
     <id>C1</id>
     <voteId>V1</voteId>

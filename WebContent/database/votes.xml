@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <votes>
 	
-  <vote>
-    <id>V0</id>
-    <userId>prueba</userId>
-    <productId>P0</productId>
-    <assessment>5</assessment>
-    <date>05/05/2020</date>
-  </vote>
+  
 
   <vote>
     <id>V1</id>

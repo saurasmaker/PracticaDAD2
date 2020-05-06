@@ -87,7 +87,6 @@ public class LoadData {
 	public static void loadVotes(ArrayList<Vote> votes) {
 		try {
             File file = new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/votes.xml");
-            System.out.println(file.getAbsolutePath());
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
             Document document = documentBuilder.parse(file);

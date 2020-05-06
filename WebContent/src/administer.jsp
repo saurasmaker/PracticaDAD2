@@ -80,6 +80,7 @@
       							<th scope="col">Dirección</th>
       							<th scope="col">Biografía</th>
       							<th scope="col">Contraseña</th>
+      							<th scope="col">Remove</th>
     						</tr>
   						</thead>
   						
@@ -102,6 +103,7 @@
       							<td><%=u.getAddress() %></td>
       							<td><%=u.getBiography() %></td>
       							<td><%=u.getPassword() %></td>
+      							<td><form action = "<%=request.getContextPath()%>/RemoveUser" method = "POST"><input type = "hidden" name = "<%=User.USER_ID_PARAM %>" value = "<%=u.getId()%>"><button type = "submit" class="btn btn-danger">Remove</button></form></td>
       							
     						</tr>	
     					<%}%>
@@ -160,6 +162,7 @@
       							<th scope="col">Modelo</th>
       							<th scope="col">Precio (Euros)</th>
       							<th scope="col">Ruta imagen</th>
+      							<th scope="col">Remove</th>
     						</tr>
   						</thead>
   						<tbody>
@@ -180,6 +183,7 @@
       							<td><%=p.getModel() %></td>
       							<td><%=p.getPrice().toString()%></td>
       							<td><%=p.getImg_path() %></td>
+      							<td><form action = "<%=request.getContextPath()%>/RemoveProduct" method = "POST"><input type = "hidden" name = "<%=Product.PRODUCT_ID_PARAM %>" value = "<%=p.getId()%>"><button type = "submit" class="btn btn-danger">Remove</button></form></td>
     						</tr>	
     					<%}%>
   						</tbody>
@@ -249,6 +253,7 @@
       							<th scope="col">ID_PRODUCTO</th>
       							<th scope="col">Puntuación</th>
       							<th scope="col">Fecha</th>
+      							<th scope="col">Remove</th>
     						</tr>
   						</thead>
   						<tbody>
@@ -269,6 +274,7 @@
       							<td><%=v.getProductId() %></td>
       							<td><%=v.getAssessment() %></td>
       							<td><%=v.getDate().toString()%></td>
+      							<td><form action = "<%=request.getContextPath()%>/RemoveVote" method = "POST"><input type = "hidden" name = "<%=Vote.VOTE_ID_PARAM %>" value = "<%=v.getId()%>"><button type = "submit" class="btn btn-danger">Remove</button></form></td>
     						</tr>	
     					<%}}%>
   						</tbody>
@@ -321,6 +327,7 @@
       							<th scope="col">ID_VOTO</th>
       							<th scope="col">Asunto</th>
       							<th scope="col">Contenido</th>
+      							<th scope="col">Remove</th>
     						</tr>
   						</thead>
   						<tbody>
@@ -339,6 +346,7 @@
       							<td><%=c.getVoteId().toString() %></td>
       							<td><%=c.getResume() %></td>
       							<td><%=c.getContent() %></td>
+      							<td><form action = "<%=request.getContextPath()%>/RemoveComment" method = "POST"><input type = "hidden" name = "<%=Comment.COMMENT_ID_PARAM %>" value = "<%=c.getId()%>"><button type = "submit" class="btn btn-danger">Remove</button></form></td>
     						</tr>	
     					<%}%>
   						</tbody>

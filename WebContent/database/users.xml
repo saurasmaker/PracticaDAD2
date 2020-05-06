@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <users>
-	<user>
-		<id>U0</id>
-		<username>userNAME</username>
-		<email>qwer@asdf.casm</email>
-		<password>contra</password>
-		<address>asdfasdf</address>
-		<biography>19/11/2008</biography>
-	</user>
+	
 	
 	<user>
     	<id>U1</id>
