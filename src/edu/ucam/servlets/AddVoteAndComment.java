@@ -34,13 +34,16 @@ public class AddVoteAndComment extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		Vote newVote = new Vote();
 		newVote.setProductId(request.getParameter(Vote.VOTE_PRODUCT_PARAM));
 		newVote.setUserId(request.getParameter(Vote.VOTE_USER_PARAM));
 		String assessment = request.getParameter(Vote.VOTE_ASSESSMENT_PARAM);
 		try {newVote.setDate(new Date());}catch(Exception t) {newVote.setDate(null);}
 			
-		if(newVote.getAssessment()!=null) {
+		System.out.println(assessment);
+		
+		if(assessment!=null) {
 			newVote.setAssessment(Integer.parseInt(assessment));
 			
 			ArrayList<String> votesReferences = new ArrayList<String>();

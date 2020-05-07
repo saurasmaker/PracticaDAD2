@@ -50,4 +50,14 @@
     <img_path>tigre.png</img_path>
     <price>0.04</price>
   </product>
+
+<product>
+    <id>P6</id>
+    <name>Bloque de MC</name>
+    <model>Grass</model>
+    <trademark>MC</trademark>
+    <description>Es un bloque</description>
+    <img_path>minecraft-block-huge.png</img_path>
+    <price>0.01</price>
+  </product>
 </products>

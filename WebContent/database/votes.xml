@@ -38,4 +38,25 @@
     <assessment>2</assessment>
     <date>31/05/2020</date>
   </vote>
+<vote>
+    <id>V6</id>
+    <userId>U3</userId>
+    <productId>P6</productId>
+    <assessment>5</assessment>
+    <date>01/01/2020</date>
+  </vote>
+<vote>
+    <id>V7</id>
+    <userId>prueba</userId>
+    <productId>P0</productId>
+    <assessment>1</assessment>
+    <date>07/05/2020</date>
+  </vote>
+<vote>
+    <id>V8</id>
+    <userId>U1</userId>
+    <productId>P2</productId>
+    <assessment>4</assessment>
+    <date>07/05/2020</date>
+  </vote>
 </votes>

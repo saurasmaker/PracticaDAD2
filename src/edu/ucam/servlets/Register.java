@@ -10,20 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import edu.ucam.classes.User;
+import edu.ucam.database.LoadData;
 import edu.ucam.database.LoadDataReferences;
 import edu.ucam.database.SaveDataByReference;
 
 /**
- * Servlet implementation class AddUser
+ * Servlet implementation class Register
  */
-@WebServlet("/AddUser")
-public class AddUser extends HttpServlet {
+@WebServlet("/Register")
+public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddUser() {
+    public Register() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,20 +40,30 @@ public class AddUser extends HttpServlet {
 		newUser.setPassword(request.getParameter(User.USER_PASSWORD_PARAM));
 		newUser.setAddress(request.getParameter(User.USER_ADDRESS_PARAM));
 		
-		String biography;
-		if((biography = request.getParameter(User.USER_BIOGRAPHY_PARAM)) == null) newUser.setBiography("NULL");
-		else newUser.setBiography(biography);
-		
-		if(newUser.getUsername()!=null) {
-			ArrayList<String> usersReferences = new ArrayList<String>();
-			LoadDataReferences.loadUsersReferences(usersReferences);	
-		
-			User.generateIdByReference(newUser, usersReferences);
-		
-			SaveDataByReference.User(newUser);
+		String error = null;
+		if(checkRegister(error, newUser)) {
+			
+			String biography;
+			if((biography = request.getParameter(User.USER_BIOGRAPHY_PARAM)) == null) newUser.setBiography("NULL");
+			else newUser.setBiography(biography);
+			
+			if(newUser.getUsername()!=null) {
+				ArrayList<String> usersReferences = new ArrayList<String>();
+				LoadDataReferences.loadUsersReferences(usersReferences);	
+			
+				User.generateIdByReference(newUser, usersReferences);
+			
+				SaveDataByReference.User(newUser);
+			}
+			
+			request.getRequestDispatcher("/GoTo?GO_TO=/src/register_success.jsp").forward(request, response);
+			
 		}
 		
-		request.getRequestDispatcher("/GoTo?GO_TO=/src/administer.jsp").forward(request, response);
+		else {
+			request.getRequestDispatcher("/GoTo?GO_TO=/src/register_error.jsp?ERROR=" + error).forward(request, response);
+		}
+		
 		
 		return;
 	}
@@ -63,6 +74,25 @@ public class AddUser extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+	}
+	
+	private Boolean checkRegister(String error, User user) {
+		
+		ArrayList<User> usersList = new ArrayList<User>();
+		LoadData.loadUsers(usersList);
+		
+		for(User u: usersList) {
+			if(u.getEmail().equals(user.getEmail())) {
+				error = "Este correo electrónico ya ha sido utilizado.";
+				return false;
+			}
+			if(u.getUsername().equals(user.getUsername())) {
+				error = "Este nombre de usuario ya ha sido utilizado.";
+				return false;
+			}
+		}
+		
+		return true;
 	}
 
 }

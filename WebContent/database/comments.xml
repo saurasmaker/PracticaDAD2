@@ -8,10 +8,23 @@
     <resume>asdf</resume>
     <content>asdf asdf</content>
   </comment>
+
 <comment>
-    <id>C2</id>
-    <voteId>V1</voteId>
+    <id>C3</id>
+    <voteId>V6</voteId>
+    <resume>Es marvelous</resume>
+    <content>Me puto flipa enserio</content>
+  </comment>
+<comment>
+    <id>C4</id>
+    <voteId>V7</voteId>
     <resume>asdf</resume>
-    <content>wqer</content>
+    <content>qwerqwerqwer</content>
+  </comment>
+<comment>
+    <id>C5</id>
+    <voteId>V8</voteId>
+    <resume>me gutaaaa</resume>
+    <content>me guta muxooo</content>
   </comment>
 </comments>

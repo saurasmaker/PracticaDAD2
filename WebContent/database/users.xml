@@ -1,57 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <users>
 	
-	
 	<user>
-    	<id>U1</id>
-    	<username>pruebadatabase</username>
-    	<email>correo@prueba.es</email>
-    	<password>contraseñadeprueba</password>
-    	<biography>Esto es una biografia para comprobar que todo funciona perfectamentes</biography>
-    	<address>direccion de prueba</address>
+    	<id>A0</id>
+    	<username>admin</username>
+    	<email>admin@rafaura.es</email>
+    	<password>admin</password>
+    	<biography>Administrador de la página web RAFAURA</biography>
+    	<address>Este administrador no tiene dirección.</address>
 	</user>
 	
-	<user>
-    	<id>U2</id>
-    	<username>pruebadatabase</username>
-    	<email>correo@prueba.es</email>
-    	<password>contraseñadeprueba</password>
-    	<biography>Esto es una biografia para comprobar que todo funciona perfectamentes</biography>
-    	<address>direccion de prueba</address>
-	</user>
-
-	<user>
-		<id>U3</id>
-    	<username>pruebadatabase</username>
-    	<email>correo@prueba.es</email>
-    	<password>contraseñadeprueba</password>
-    	<biography>Esto es una biografia para comprobar que todo funciona perfectamentes</biography>
-    	<address>direccion de prueba</address>
-	</user>
-
-	<user>
-    	<id>U4</id>
-    	<username>pruebadatabase</username>
-    	<email>correo@prueba.es</email>
-    	<password>contraseñadeprueba</password>
-    	<biography>Esto es una biografia para comprobar que todo funciona perfectamentes</biography>
-    	<address>direccion de prueba</address>
-  	</user>
-  	
 <user>
-    <id>U5</id>
-    <username>admin</username>
+    <id>U1</id>
+    <username>saurasmaker</username>
     <email>saurasmaker@gmail.com</email>
-    <password>asdf</password>
+    <password>saurasmakerrrr</password>
     <biography>NULL</biography>
-    <address>Igualdad</address>
-  </user>
-<user>
-    <id>C6</id>
-    <username>nuevoUser</username>
-    <email>user@user.com</email>
-    <password>user</password>
-    <biography>NULL</biography>
-    <address>user user</address>
+    <address>igualdad 3</address>
   </user>
 </users>

@@ -27,10 +27,15 @@ public class GoTo extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String goTo = (String)request.getParameter("GO_TO");
+		String setParameter = null;
 		if(goTo!=null) {
 			switch(goTo) {
 			case "/index.jsp":
 				request.getSession().setAttribute("CURRENT_PAGE", "CATALOGUE");
+				break;
+			case "/src/search_catalogue.jsp":
+				request.getSession().setAttribute("CURRENT_PAGE", "CATALOGUE");
+				setParameter = "?SEARCH=" + request.getParameter("SEARCH");
 				break;
 			case "/src/promos.jsp":
 				request.getSession().setAttribute("CURRENT_PAGE", "PROMO");
@@ -38,11 +43,22 @@ public class GoTo extends HttpServlet {
 			case "/src/administer.jsp":
 				request.getSession().setAttribute("CURRENT_PAGE", "ADMINISTER");
 				break;
+			case "/src/login_error.jsp":				
+				request.getSession().setAttribute("CURRENT_PAGE", "LOGIN_ERROR");
+				break;
+			case "/src/register_error.jsp":
+				request.getSession().setAttribute("ERROR", request.getAttribute("ERROR"));
+				request.getSession().setAttribute("CURRENT_PAGE", "ADMINISTER");
+				break;
 			}
 		}
 		else {
 			goTo = "/index.jsp";
 		}
+		
+		if(setParameter != null)
+			goTo += setParameter; 
+		
 		request.getRequestDispatcher(goTo).forward(request, response);
 	}
 
