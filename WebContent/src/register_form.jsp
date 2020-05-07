@@ -14,8 +14,8 @@
       
       <div class="modal-body mx-3">
       	<div class="md-form mb-4">
-          <i class="fas fa-lock prefix grey-text"></i>
-          <input type="password" id="defaultForm-pass" name = "<%=User.USER_USERNAME_PARAM%>" class="form-control validate required">
+          <i class="fas fa-user prefix grey-text"></i>
+          <input type="text" id="defaultForm-pass" name = "<%=User.USER_USERNAME_PARAM%>" class="form-control validate required">
           <label data-error="wrong" data-success="right" for="defaultForm-pass">Username</label>
       	</div>
       
@@ -38,7 +38,7 @@
        </div>
        
        <div class="md-form mb-4">
-          <i class="fas fa-lock prefix grey-text"></i>
+          <i class="fas fa-address-card prefix grey-text"></i>
           <input type="text" id="defaultForm-pass" name = "<%=User.USER_ADDRESS_PARAM%>"class="form-control validate required">
           <label data-error="wrong" data-success="right" for="defaultForm-pass">Address</label>
        </div>

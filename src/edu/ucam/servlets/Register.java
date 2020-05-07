@@ -39,9 +39,10 @@ public class Register extends HttpServlet {
 		newUser.setEmail(request.getParameter(User.USER_EMAIL_PARAM));
 		newUser.setPassword(request.getParameter(User.USER_PASSWORD_PARAM));
 		newUser.setAddress(request.getParameter(User.USER_ADDRESS_PARAM));
+
+		String error = checkRegister(newUser, request.getParameter(User.USER_REPEAT_PASSWORD_PARAM));
 		
-		String error = null;
-		if(checkRegister(error, newUser)) {
+		if(error==null) {
 			
 			String biography;
 			if((biography = request.getParameter(User.USER_BIOGRAPHY_PARAM)) == null) newUser.setBiography("NULL");
@@ -61,6 +62,7 @@ public class Register extends HttpServlet {
 		}
 		
 		else {
+			request.getSession().setAttribute("ERROR", error);
 			request.getRequestDispatcher("/GoTo?GO_TO=/src/register_error.jsp?ERROR=" + error).forward(request, response);
 		}
 		
@@ -76,23 +78,24 @@ public class Register extends HttpServlet {
 		doGet(request, response);
 	}
 	
-	private Boolean checkRegister(String error, User user) {
+	private String checkRegister(User user, String repeatPass) {
 		
 		ArrayList<User> usersList = new ArrayList<User>();
 		LoadData.loadUsers(usersList);
 		
+		if(!user.getPassword().equals(repeatPass))
+			return "Las contraseñas no coinciden. Por favor inténtelo de nuevo.";
+		
 		for(User u: usersList) {
-			if(u.getEmail().equals(user.getEmail())) {
-				error = "Este correo electrónico ya ha sido utilizado.";
-				return false;
-			}
-			if(u.getUsername().equals(user.getUsername())) {
-				error = "Este nombre de usuario ya ha sido utilizado.";
-				return false;
-			}
+			if(u.getEmail().equals(user.getEmail())) 
+				return "Este correo electrónico ya ha sido utilizado.";
+			
+			if(u.getUsername().equals(user.getUsername())) 
+				return "Este nombre de usuario ya ha sido utilizado.";
+
 		}
 		
-		return true;
+		return null;
 	}
 
 }

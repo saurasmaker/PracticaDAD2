@@ -59,4 +59,137 @@
     <assessment>4</assessment>
     <date>07/05/2020</date>
   </vote>
+<vote>
+    <id>V9</id>
+    <userId>U3</userId>
+    <productId>P6</productId>
+    <assessment>5</assessment>
+    <date>07/05/2020</date>
+  </vote>
+<vote>
+    <id>V10</id>
+    <userId>U3</userId>
+    <productId>P4</productId>
+    <assessment>5</assessment>
+    <date>07/05/2020</date>
+  </vote>
+<vote>
+    <id>V11</id>
+    <userId>U5</userId>
+    <productId>P0</productId>
+    <assessment>5</assessment>
+    <date>07/05/2020</date>
+  </vote>
+<vote>
+    <id>V11</id>
+    <userId>U3</userId>
+    <productId>P5</productId>
+    <assessment>1</assessment>
+    <date>07/05/2020</date>
+  </vote>
+<vote>
+    <id>V12</id>
+    <userId>U5</userId>
+    <productId>P2</productId>
+    <assessment>1</assessment>
+    <date>07/05/2020</date>
+  </vote>
+<vote>
+    <id>V13</id>
+    <userId>U3</userId>
+    <productId>P2</productId>
+    <assessment>1</assessment>
+    <date>07/05/2020</date>
+  </vote>
+<vote>
+    <id>V14</id>
+    <userId>U3</userId>
+    <productId>P2</productId>
+    <assessment>1</assessment>
+    <date>07/05/2020</date>
+  </vote>
+<vote>
+    <id>V15</id>
+    <userId>U3</userId>
+    <productId>P0</productId>
+    <assessment>1</assessment>
+    <date>07/05/2020</date>
+  </vote>
+<vote>
+    <id>V16</id>
+    <userId>U3</userId>
+    <productId>P3</productId>
+    <assessment>3</assessment>
+    <date>07/05/2020</date>
+  </vote>
+<vote>
+    <id>V17</id>
+    <userId>U4</userId>
+    <productId>P6</productId>
+    <assessment>5</assessment>
+    <date>07/05/2020</date>
+  </vote>
+<vote>
+    <id>V18</id>
+    <userId>U5</userId>
+    <productId>P6</productId>
+    <assessment>5</assessment>
+    <date>07/05/2020</date>
+  </vote>
+<vote>
+    <id>V19</id>
+    <userId>U6</userId>
+    <productId>P0</productId>
+    <assessment>3</assessment>
+    <date>07/05/2020</date>
+  </vote>
+<vote>
+    <id>V20</id>
+    <userId>U6</userId>
+    <productId>P7</productId>
+    <assessment>5</assessment>
+    <date>07/05/2020</date>
+  </vote>
+<vote>
+    <id>V21</id>
+    <userId>U3</userId>
+    <productId>P7</productId>
+    <assessment>5</assessment>
+    <date>07/05/2020</date>
+  </vote>
+<vote>
+    <id>V22</id>
+    <userId>U5</userId>
+    <productId>P8</productId>
+    <assessment>5</assessment>
+    <date>07/05/2020</date>
+  </vote>
+<vote>
+    <id>V23</id>
+    <userId>U3</userId>
+    <productId>P7</productId>
+    <assessment>5</assessment>
+    <date>07/05/2020</date>
+  </vote>
+<vote>
+    <id>V24</id>
+    <userId>U6</userId>
+    <productId>P7</productId>
+    <assessment>5</assessment>
+    <date>07/05/2020</date>
+  </vote>
+<vote>
+    <id>V25</id>
+    <userId>U3</userId>
+    <productId>P7</productId>
+    <assessment>5</assessment>
+    <date>07/05/2020</date>
+  </vote>
+<vote>
+    <id>V26</id>
+    <userId>U3</userId>
+    <productId>P8</productId>
+    <assessment>5</assessment>
+    <date>07/05/2020</date>
+  </vote>
 </votes>

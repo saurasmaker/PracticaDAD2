@@ -47,9 +47,10 @@ public class GoTo extends HttpServlet {
 				request.getSession().setAttribute("CURRENT_PAGE", "LOGIN_ERROR");
 				break;
 			case "/src/register_error.jsp":
-				request.getSession().setAttribute("ERROR", request.getAttribute("ERROR"));
+				request.getSession().setAttribute("ERROR", request.getSession().getAttribute("ERROR"));
 				request.getSession().setAttribute("CURRENT_PAGE", "ADMINISTER");
-				break;
+				break;				
+			
 			}
 		}
 		else {

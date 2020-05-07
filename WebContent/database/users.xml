@@ -18,4 +18,44 @@
     <biography>NULL</biography>
     <address>igualdad 3</address>
   </user>
+<user>
+    <id>U2</id>
+    <username>prueba</username>
+    <email>pruena@rafaura.es</email>
+    <password>qwer</password>
+    <biography>NULL</biography>
+    <address>asdf</address>
+  </user>
+<user>
+    <id>U3</id>
+    <username>Kerry Copito</username>
+    <email>xcobos98@gmail.com</email>
+    <password>kerrykopoyon</password>
+    <biography>NULL</biography>
+    <address>Que te importa bro ajaja</address>
+  </user>
+<user>
+    <id>U4</id>
+    <username>PitoChico</username>
+    <email>ma.rodgar1999@gmail.com</email>
+    <password>pitopequeño</password>
+    <biography>NULL</biography>
+    <address>Mi casa</address>
+  </user>
+<user>
+    <id>U5</id>
+    <username>Un coleeega</username>
+    <email>manug9lol@gmail.com</email>
+    <password>otrocolega</password>
+    <biography>NULL</biography>
+    <address>aqui</address>
+  </user>
+<user>
+    <id>U6</id>
+    <username>Angel</username>
+    <email>jabuitrago@alu.ucam.edu</email>
+    <password>ivanerestosexy</password>
+    <biography>NULL</biography>
+    <address>Mi casa</address>
+  </user>
 </users>

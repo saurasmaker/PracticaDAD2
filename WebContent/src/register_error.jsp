@@ -30,7 +30,7 @@
 		
 				<div class = "col-12">
 					<p>
-						<%=request.getParameter("ERROR") %>
+						<%=request.getSession().getAttribute("ERROR") %>
 					</p>
 				</div>
 		

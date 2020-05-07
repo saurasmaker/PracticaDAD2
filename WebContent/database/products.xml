@@ -60,4 +60,22 @@
     <img_path>minecraft-block-huge.png</img_path>
     <price>0.01</price>
   </product>
+<product>
+    <id>P7</id>
+    <name>Vagina en lata</name>
+    <model>RileyRaid Pussy</model>
+    <trademark>Pornhub</trademark>
+    <description>Yatusabe jeje</description>
+    <img_path>índice.jpg</img_path>
+    <price>99.0</price>
+  </product>
+<product>
+    <id>P8</id>
+    <name>Meme</name>
+    <model>Virgin vs man</model>
+    <trademark>Memes s.a</trademark>
+    <description>Meme estandar</description>
+    <img_path>IMG-20200415-WA0002.jpg</img_path>
+    <price>1.0</price>
+  </product>
 </products>

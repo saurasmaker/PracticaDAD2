@@ -17,7 +17,7 @@
       
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
-          <i class="fas fa-envelope prefix grey-text"></i>
+          <i class="fas fa-user prefix grey-text"></i>
           <input type="text" id="defaultForm-email" class="form-control validate" name = "<%=User.USER_USERNAME_PARAM%>">
           <label data-error="wrong" data-success="right" for="defaultForm-email">Your username</label>
         </div>
