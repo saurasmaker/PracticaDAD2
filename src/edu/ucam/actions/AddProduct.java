@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
@@ -21,12 +19,8 @@ import edu.ucam.database.LoadDataReferences;
 import edu.ucam.database.SaveDataByReference;
 import edu.ucam.tools.ProjectPath;
 
-/**
- * Servlet implementation class AddProduct
- */
-@WebServlet("/AddProduct")
-@MultipartConfig
-public class AddProduct extends Action {
+
+public class AddProduct extends ServletAction {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -74,7 +68,7 @@ public class AddProduct extends Action {
         	SaveDataByReference.Product(newProduct);
         }
         
-		return "/GoTo?GO_TO=/src/administer.jsp";
+		return "/src/administer.jsp";
 	}
 	
 	

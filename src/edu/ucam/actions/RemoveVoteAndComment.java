@@ -12,7 +12,7 @@ import edu.ucam.classes.Vote;
 import edu.ucam.database.LoadData;
 import edu.ucam.database.RemoveElementByReference;
 
-public class RemoveVoteAndComment extends Action {
+public class RemoveVoteAndComment extends ServletAction {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,7 +30,7 @@ public class RemoveVoteAndComment extends Action {
 			RemoveElementByReference.vote(voteId);
 		}
 		
-		return "/GoTo?GO_TO=/src/administer.jsp";
+		return "/src/administer.jsp";
 	}
 
 }

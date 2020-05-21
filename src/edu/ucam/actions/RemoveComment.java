@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import edu.ucam.classes.Comment;
 import edu.ucam.database.RemoveElementByReference;
 
-public class RemoveComment extends Action {
+public class RemoveComment extends ServletAction {
 
 
 	@Override
@@ -20,7 +20,7 @@ public class RemoveComment extends Action {
 		if(id!=null)
 			RemoveElementByReference.comment(id);
 		
-		return "/GoTo?GO_TO=/src/administer.jsp";
+		return "/src/administer.jsp";
 	}
 
 }

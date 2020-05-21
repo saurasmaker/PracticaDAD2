@@ -9,7 +9,7 @@ import edu.ucam.classes.User;
 import edu.ucam.database.RemoveElementByReference;
 
 
-public class RemoveUser extends Action {
+public class RemoveUser extends ServletAction {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
@@ -20,7 +20,7 @@ public class RemoveUser extends Action {
 		if(id!=null)
 			RemoveElementByReference.user(id);
 		
-		return "/GoTo?GO_TO=/src/administer.jsp";
+		return "/src/administer.jsp";
 	}
 
 }

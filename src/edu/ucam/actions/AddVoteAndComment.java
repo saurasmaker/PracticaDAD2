@@ -14,7 +14,7 @@ import edu.ucam.database.LoadDataReferences;
 import edu.ucam.database.SaveDataByReference;
 
 
-public class AddVoteAndComment extends Action {
+public class AddVoteAndComment extends ServletAction {
 
 
 	@Override

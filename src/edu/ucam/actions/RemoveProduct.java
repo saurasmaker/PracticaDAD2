@@ -12,29 +12,33 @@ import edu.ucam.classes.Vote;
 import edu.ucam.database.LoadData;
 import edu.ucam.database.RemoveElementByReference;
 
-public class RemoveProduct extends Action{
+public class RemoveProduct extends ServletAction{
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String id = request.getParameter(Product.PRODUCT_ID_PARAM);
-		
-		if(id!=null && canRemove(id))
+		String cantRemove = "";
+		if(id!=null &&  (cantRemove=canRemove(id))==null)
 			RemoveElementByReference.product(id);
 		
-		return "/GoTo?GO_TO=/src/administer.jsp";
+		else return "/src/remove_error.jsp?MESSAGE_ERROR="+cantRemove;
+			
+		
+		return "/src/administer.jsp";
 	}
 
 	
-	private Boolean canRemove(String id) {
+	private String canRemove(String id) {
 		
 		ArrayList<Vote> votes = new ArrayList<Vote>();
 		LoadData.loadVotes(votes);
 		
 		for(Vote v: votes) 
-			if(v.getProductId().equals(id)) 
-				return false;
+			if(v.getProductId().equals(id)) {
+				return "No puedes eliminar este Producto porque tiene Votos asociados a el. Elimina antes todos sus Votos para poder eliminarlo.";
+			}
 			
-		return true;
+		return null;
 	}
 }

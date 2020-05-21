@@ -1,5 +1,6 @@
 <%@ page import = "edu.ucam.classes.*" %>
 <%@ page import = "edu.ucam.database.*" %>
+<%@ page import = "edu.ucam.servlets.Control" %>
 <%@ page import = "java.util.ArrayList" %>
 
 <div class = "row" style = "padding-top: 15px; padding-left: 30px ; padding-right: 30px; height: 100%; ">
@@ -67,7 +68,8 @@
 				</p>
 				<%if(currentUser!=null){ %>
 				<div class="collapse" id="collapse<%=i%>vote">
-  					<form class="card card-body"  action = "<%=request.getContextPath()%>/AddVoteAndComment" method = "post">
+  					<form class="card card-body"  action = "<%=request.getContextPath()%>/Control" method = "post">
+  						<input id = "<%=Control.PARAM_ACTION_ID%>" name = "<%=Control.PARAM_ACTION_ID%>" value = "AddVoteAndComment" type = "hidden">
   						<div>
   							<p>Estrellas:
   								<input type="radio" name="<%=Vote.VOTE_ASSESSMENT_PARAM %>" value="1" required/>1

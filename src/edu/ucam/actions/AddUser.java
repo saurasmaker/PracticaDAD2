@@ -12,7 +12,7 @@ import edu.ucam.database.LoadDataReferences;
 import edu.ucam.database.SaveDataByReference;
 
 
-public class AddUser extends Action {
+public class AddUser extends ServletAction {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -36,7 +36,7 @@ public class AddUser extends Action {
 			SaveDataByReference.User(newUser);
 		}
 				
-		return "/GoTo?GO_TO=/src/administer.jsp";
+		return "/src/administer.jsp";
 	}
 
 }

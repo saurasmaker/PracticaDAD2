@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import edu.ucam.actions.ServletAction;
+
 /**
  * Servlet implementation class Controller
  */
@@ -38,7 +40,7 @@ public class Control extends HttpServlet {
 		String jsp = "/src/error.jsp";
 	
 		try {
-			action = (ServletAction)Class.forName("edu.ucam.servlets." + actionId).newInstance();
+			action = (ServletAction)Class.forName("edu.ucam.actions." + actionId).newInstance();
 			jsp = action.execute(request, response);
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
 			request.setAttribute("MSG_ERROR", e.getStackTrace().toString());

@@ -3,6 +3,7 @@
     
 <%@ page import = "edu.ucam.classes.*" %>
 <%@ page import = "edu.ucam.database.*" %>
+<%@ page import = "edu.ucam.servlets.Control" %>
 <%@ page import = "java.util.ArrayList" %>
     
 <!doctype html>
@@ -24,10 +25,10 @@
 
 			<%			
 			if((User)request.getSession().getAttribute(User.USER_PARAM) == null)
-				request.getRequestDispatcher("/GoTo?GO_TO=/src/access_denied.jsp").forward(request, response);
+				request.getRequestDispatcher("/src/access_denied.jsp").forward(request, response);
 			
 			else if(!((User)request.getSession().getAttribute(User.USER_PARAM)).getUsername().equals("admin"))
-				request.getRequestDispatcher("/GoTo?GO_TO=/src/access_denied.jsp").forward(request, response);
+				request.getRequestDispatcher("/src/access_denied.jsp").forward(request, response);
 			%>
 
 
@@ -50,8 +51,9 @@
 				</div>
 				
 				<div class = "col-lg-4 col-md-6 col-sm-12">
-					<form class = "form-group" action = "<%=request.getContextPath()%>/AddUser" method = "post">
-				
+					<form class = "form-group" action = "<%=request.getContextPath()%>/Control" method = "post">
+						<input id = "<%=Control.PARAM_ACTION_ID%>" name = "<%=Control.PARAM_ACTION_ID%>" value = "AddUser" type = "hidden">
+						
 						<label for="input-username">Nombre usuario: </label>
 						<p><input id = "input-username" type = "text" class="form-control" placeholder = "Introduce el nombre del usuario..." name = "<%=User.USER_USERNAME_PARAM%>" required></p>
 						
@@ -103,8 +105,13 @@
       							<td><%=u.getAddress() %></td>
       							<td><%=u.getBiography() %></td>
       							<td><%=u.getPassword() %></td>
-      							<td><form action = "<%=request.getContextPath()%>/RemoveUser" method = "POST"><input type = "hidden" name = "<%=User.USER_ID_PARAM %>" value = "<%=u.getId()%>"><button type = "submit" class="btn btn-danger">Remove</button></form></td>
-      							
+								<td>
+									<form action = "<%=request.getContextPath()%>/Control" method = "POST">
+      									<input type = "hidden" name = "<%=User.USER_ID_PARAM %>" value = "<%=u.getId()%>">
+      									<input id = "<%=Control.PARAM_ACTION_ID%>" name = "<%=Control.PARAM_ACTION_ID%>" value = "RemoveUser" type = "hidden">
+      									<button type = "submit" class="btn btn-danger">Remove</button>
+      								</form>
+      							</td>      							
     						</tr>	
     					<%}%>
   						</tbody>
@@ -114,7 +121,7 @@
 				</div>
 				
 				
-				
+				<br/>
 				
 				
 				<!-- PRODUCTOS -->
@@ -125,8 +132,8 @@
 				</div>
 				
 				<div class = "col-lg-4 col-md-6 col-sm-12">
-					<form class = "form-group" enctype="multipart/form-data" action = "<%=request.getContextPath()%>/AddProduct" method = "POST">
-						<input id = "input-id" type = "hidden" class="form-control" placeholder = "Introduce el ID del producto..." name = "<%=Product.PRODUCT_ID_PARAM%>">
+					<form class = "form-group" enctype="multipart/form-data" action = "<%=request.getContextPath()%>/Control" method = "POST">
+						<input id = "<%=Control.PARAM_ACTION_ID%>" name = "<%=Control.PARAM_ACTION_ID%>" value = "AddProduct" type = "hidden">
 						
 						<label for="input-name">Nombre: </label>
 						<p><input id = "input-name" type = "text" class="form-control" placeholder = "Introduce el nombre del producto..." name = "<%=Product.PRODUCT_PARAM_NAME%>" required></p>
@@ -183,7 +190,13 @@
       							<td><%=p.getModel() %></td>
       							<td><%=p.getPrice().toString()%></td>
       							<td><%=p.getImg_path() %></td>
-      							<td><form action = "<%=request.getContextPath()%>/RemoveProduct" method = "POST"><input type = "hidden" name = "<%=Product.PRODUCT_ID_PARAM %>" value = "<%=p.getId()%>"><button type = "submit" class="btn btn-danger">Remove</button></form></td>
+      							<td>
+      								<form action = "<%=request.getContextPath()%>/Control" method = "POST">
+      									<input type = "hidden" name = "<%=Product.PRODUCT_ID_PARAM %>" value = "<%=p.getId()%>">
+      									<input id = "<%=Control.PARAM_ACTION_ID%>" name = "<%=Control.PARAM_ACTION_ID%>" value = "RemoveProduct" type = "hidden">
+      									<button type = "submit" class="btn btn-danger">Remove</button>
+      								</form>
+      							</td>
     						</tr>	
     					<%}%>
   						</tbody>
@@ -194,7 +207,7 @@
 				
 				
 				
-				
+				<br/>
 				
 				
 				
@@ -206,9 +219,9 @@
 				</div>
 				
 				<div class = "col-lg-4 col-md-6 col-sm-12">
-					<form class = "form-group" action = "<%=request.getContextPath()%>/AddVote" method = "post">
+					<form class = "form-group" action = "<%=request.getContextPath()%>/Control" method = "post">
 						
-						<input id = "input-id" type = "hidden" class="form-control" placeholder = "Introduce el ID del producto..." name = "<%=Vote.VOTE_ID_PARAM%>">
+						<input id = "<%=Control.PARAM_ACTION_ID%>" name = "<%=Control.PARAM_ACTION_ID%>" value = "AddVote" type = "hidden">
 						
 						<label for="select-user-id">ID Usuario</label>
     					<p><select class="form-control" id="select-user-id" name = "<%=Vote.VOTE_USER_PARAM %>" required>
@@ -274,7 +287,13 @@
       							<td><%=v.getProductId() %></td>
       							<td><%=v.getAssessment() %></td>
       							<td><%=v.getDate().toString()%></td>
-      							<td><form action = "<%=request.getContextPath()%>/RemoveVote" method = "POST"><input type = "hidden" name = "<%=Vote.VOTE_ID_PARAM %>" value = "<%=v.getId()%>"><button type = "submit" class="btn btn-danger">Remove</button></form></td>
+      							<td>
+      								<form action = "<%=request.getContextPath()%>/Control" method = "POST">
+      									<input type = "hidden" name = "<%=Vote.VOTE_ID_PARAM %>" value = "<%=v.getId()%>">
+      									<input id = "<%=Control.PARAM_ACTION_ID%>" name = "<%=Control.PARAM_ACTION_ID%>" value = "RemoveVote" type = "hidden">
+      									<button type = "submit" class="btn btn-danger">Remove</button>
+      								</form>
+      							</td>
     						</tr>	
     					<%}}%>
   						</tbody>
@@ -283,6 +302,9 @@
 
 				</div>
 					
+					
+				<br/>
+				
 				
 				<!-- COMENTARIOS -->
 				<div class = "col-12">
@@ -292,9 +314,9 @@
 				</div>
 				
 				<div class = "col-lg-4 col-md-6 col-sm-12">
-					<form class = "form-group" action = "<%=request.getContextPath()%>/AddComment" method = "post">
+					<form class = "form-group" action = "<%=request.getContextPath()%>/Control" method = "post">
 						
-						<input id = "input-id" type = "hidden" class="form-control" placeholder = "Introduce el ID del producto..." name = "<%=Comment.COMMENT_ID_PARAM%>">
+						<input id = "<%=Control.PARAM_ACTION_ID%>" name = "<%=Control.PARAM_ACTION_ID%>" value = "AddComment" type = "hidden">
 						
 						<label for="select-user-id">ID Voto</label>
     					<p><select class="form-control" id="select-user-id" name = "<%=Comment.COMMENT_VOTE_ID_PARAM %>" required>
@@ -346,7 +368,13 @@
       							<td><%=c.getVoteId().toString() %></td>
       							<td><%=c.getResume() %></td>
       							<td><%=c.getContent() %></td>
-      							<td><form action = "<%=request.getContextPath()%>/RemoveComment" method = "POST"><input type = "hidden" name = "<%=Comment.COMMENT_ID_PARAM %>" value = "<%=c.getId()%>"><button type = "submit" class="btn btn-danger">Remove</button></form></td>
+      							<td>
+      								<form action = "<%=request.getContextPath()%>/Control" method = "POST">
+      									<input type = "hidden" name = "<%=Comment.COMMENT_ID_PARAM %>" value = "<%=c.getId()%>">
+      									<input id = "<%=Control.PARAM_ACTION_ID%>" name = "<%=Control.PARAM_ACTION_ID%>" value = "RemoveComment" type = "hidden">
+      									<button type = "submit" class="btn btn-danger">Remove</button>
+      								</form>
+      							</td>
     						</tr>	
     					<%}%>
   						</tbody>
@@ -357,7 +385,7 @@
 
 			</div>
 
-
+			<br/>
 				
         	<jsp:include page="/src/footer.html"></jsp:include>
 

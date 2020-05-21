@@ -12,7 +12,7 @@ import edu.ucam.classes.Vote;
 import edu.ucam.database.LoadDataReferences;
 import edu.ucam.database.SaveDataByReference;
 
-public class AddVote extends Action {
+public class AddVote extends ServletAction {
 
 
 	@Override
@@ -36,7 +36,7 @@ public class AddVote extends Action {
 			SaveDataByReference.Vote(newVote);
 		}
 				
-		return "/GoTo?GO_TO=/src/administer.jsp";
+		return "/src/administer.jsp";
 	}
 
 }

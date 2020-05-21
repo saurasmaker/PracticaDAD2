@@ -11,7 +11,7 @@ import edu.ucam.classes.User;
 import edu.ucam.database.LoadData;
 
 
-public class Login extends Action {
+public class Login extends ServletAction {
 
 
 	@Override
@@ -34,7 +34,7 @@ public class Login extends Action {
 		}
 		
 		if(user == null)
-			return "/GoTo?GO_TO=/src/login_error.jsp";
+			return "/src/login_error.jsp";
 		
 		return "/index.jsp";
 	}

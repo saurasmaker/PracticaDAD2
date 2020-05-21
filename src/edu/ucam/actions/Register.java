@@ -12,7 +12,7 @@ import edu.ucam.database.LoadData;
 import edu.ucam.database.LoadDataReferences;
 import edu.ucam.database.SaveDataByReference;
 
-public class Register extends Action {
+public class Register extends ServletAction {
 	
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -44,12 +44,10 @@ public class Register extends Action {
 			
 		}
 		
-		else {
-			request.getSession().setAttribute("ERROR", error);
-			request.getRequestDispatcher("/GoTo?GO_TO=/src/register_error.jsp?ERROR=" + error).forward(request, response);
-		}
+		else return "/src/register_error.jsp?ERROR=" + error;
 		
-		return null;
+		
+		return "/src/register_success.jsp";
 	}
 	
 	
