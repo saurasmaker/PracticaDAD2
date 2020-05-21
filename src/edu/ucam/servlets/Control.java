@@ -3,6 +3,7 @@ package edu.ucam.servlets;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -11,18 +12,18 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Controller
  */
-@WebServlet("/Controller")
-public class Controller extends HttpServlet {
+@MultipartConfig
+@WebServlet("/Control")
+public class Control extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	public static final String PARAM_ACTION_ID = "PARAM_ACTION_ID", PARAM_ADD_PRODUCT_ACTION = "PARAM_ADD_PRODUCT_ACTION", PARAM_LOGIN_ACTION = "PARAM_LOGIN_ACTION",
-			PARAM_REGISTER_ACTION = "PARAM_REGISTER_ACTION", PARAM_REMOVE_PRODUCT_ACTION = "PARAM_REMOVE_PRODUCT_ACTION", PARAM_INSERT_ACTION = "";
+	public static final String PARAM_ACTION_ID = "PARAM_ACTION_ID";
 
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Controller() {
+    public Control() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,9 +33,9 @@ public class Controller extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String actionId = (String)request.getParameter(Controller.PARAM_ACTION_ID);
+		String actionId = (String)request.getParameter(Control.PARAM_ACTION_ID);
 		ServletAction action = null;
-		String jsp = "/html_jsp/error.jsp";
+		String jsp = "/src/error.jsp";
 	
 		try {
 			action = (ServletAction)Class.forName("edu.ucam.servlets." + actionId).newInstance();
