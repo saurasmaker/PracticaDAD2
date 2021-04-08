@@ -20,8 +20,8 @@ public class RemoveVote extends ServletAction {
 		
 		String id = request.getParameter(Vote.VOTE_ID_PARAM);
 		String cantRemove = "";
-		if(id!=null && (cantRemove=canRemove(id))==null)
-			RemoveElementByReference.vote(id);
+		if(id!=null && (cantRemove=canRemove(request.getContextPath(), id))==null)
+			RemoveElementByReference.vote(request.getContextPath(), id);
 		
 		else return "/src/remove_error.jsp?MESSAGE_ERROR="+cantRemove;;
 		
@@ -29,10 +29,10 @@ public class RemoveVote extends ServletAction {
 	}
 	
 	
-	private String canRemove(String id) {
+	private String canRemove(String contextPath, String id) {
 		
 		ArrayList<Comment> comments = new ArrayList<Comment>();
-		LoadData.loadComments(comments);
+		LoadData.loadComments(contextPath, comments);
 		
 		for(Comment c: comments) 
 			if(c.getVoteId().equals(id)) 

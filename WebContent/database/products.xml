@@ -79,4 +79,22 @@
     <price>1.0</price>
   </product>
 
+<product>
+    <id>P9</id>
+    <name>new product</name>
+    <model>product</model>
+    <trademark>new</trademark>
+    <description>jejejejejejejejejejejeje</description>
+    <img_path>Plantilla_Codigo_Lyoko.jpg</img_path>
+    <price>23.0</price>
+  </product>
+<product>
+    <id>P10</id>
+    <name>code lyoko</name>
+    <model>code</model>
+    <trademark>lyoko</trademark>
+    <description>code lyoko asdfasdfasdfas</description>
+    <img_path>Plantilla_Codigo_Lyoko.jpg</img_path>
+    <price>32.0</price>
+  </product>
 </products>

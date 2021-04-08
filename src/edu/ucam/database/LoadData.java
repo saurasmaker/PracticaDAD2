@@ -19,9 +19,10 @@ import edu.ucam.classes.Vote;
 
 public class LoadData {
 
-	public static void loadProducts(ArrayList<Product> products) {
+	public static void loadProducts(String contextPath, ArrayList<Product> products) {
+				
 		try {
-            File file = new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/products.xml");
+            File file = new File(contextPath + "/WebContent/database/products.xml");
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
             Document document = documentBuilder.parse(file);
@@ -53,9 +54,9 @@ public class LoadData {
 	}
 	
 	
-	public static void loadUsers(ArrayList<User> users) {
+	public static void loadUsers(String contextPath, ArrayList<User> users) {
 		try {
-            File file = new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/users.xml");
+            File file = new File(contextPath + "/WebContent/database/users.xml");
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
             Document document = documentBuilder.parse(file);
@@ -84,9 +85,12 @@ public class LoadData {
 		return;
 	}
 	
-	public static void loadVotes(ArrayList<Vote> votes) {
+	public static void loadVotes(String contextPath, ArrayList<Vote> votes) {
+		
+		System.out.println(contextPath);
+		
 		try {
-            File file = new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/votes.xml");
+            File file = new File(contextPath + "/WebContent/database/votes.xml");
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
             Document document = documentBuilder.parse(file);
@@ -115,9 +119,9 @@ public class LoadData {
 		return;
 	}
 	
-	public static void loadComments(ArrayList<Comment> comments) {
+	public static void loadComments(String contextPath, ArrayList<Comment> comments) {
 		try {
-            File file = new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/comments.xml");
+            File file = new File(contextPath + "/WebContent/database/comments.xml");
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
             Document document = documentBuilder.parse(file);
@@ -144,12 +148,12 @@ public class LoadData {
 		return;
 	}
 	
-	public static void loadDataBase(ArrayList<User> users, ArrayList<Product> products, ArrayList<Vote> votes, ArrayList<Comment> comments) {
+	public static void loadDataBase(String contextPath, ArrayList<User> users, ArrayList<Product> products, ArrayList<Vote> votes, ArrayList<Comment> comments) {
 		
-		loadProducts(products);
-		loadUsers(users);
-		loadVotes(votes);
-		loadComments(comments);
+		loadProducts(contextPath, products);
+		loadUsers(contextPath, users);
+		loadVotes(contextPath, votes);
+		loadComments(contextPath, comments);
 		
 		return;
 	}

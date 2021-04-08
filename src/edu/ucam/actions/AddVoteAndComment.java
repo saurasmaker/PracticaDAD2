@@ -32,7 +32,7 @@ public class AddVoteAndComment extends ServletAction {
 			newVote.setAssessment(Integer.parseInt(assessment));
 			
 			ArrayList<String> votesReferences = new ArrayList<String>();
-			LoadDataReferences.loadVotesReferences(votesReferences);	
+			LoadDataReferences.loadVotesReferences(request.getContextPath(), votesReferences);	
 		
 			Vote.generateIdByReference(newVote, votesReferences);
 			
@@ -47,14 +47,14 @@ public class AddVoteAndComment extends ServletAction {
 			
 			if(newComment!=null) {
 				ArrayList<String> commentsReferences = new ArrayList<String>();
-				LoadDataReferences.loadCommentsReferences(commentsReferences);	
+				LoadDataReferences.loadCommentsReferences(request.getContextPath(), commentsReferences);	
 			
 				Comment.generateIdByReference(newComment, commentsReferences);
 				
-				SaveDataByReference.Comment(newComment);
+				SaveDataByReference.Comment(request.getContextPath(), newComment);
 			}
 		
-			SaveDataByReference.Vote(newVote);
+			SaveDataByReference.Vote(request.getContextPath(), newVote);
 		}
 		
 		return "/index.jsp";

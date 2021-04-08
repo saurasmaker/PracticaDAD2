@@ -22,10 +22,10 @@ import edu.ucam.classes.Vote;
 
 public class SaveDataByReference{
 	
-	public static void Product(Product p) {
+	public static void Product(String contextPath, Product p) {
 		
 	
-		File file = new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/products.xml");
+		File file = new File(contextPath + "/WebContent/database/products.xml");
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = null;
         Document doc = null;
@@ -99,10 +99,10 @@ public class SaveDataByReference{
 	}
 	
 	
-	public static void User(User u) {
+	public static void User(String contextPath, User u) {
 		
 
-		File file = new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/users.xml");
+		File file = new File(contextPath + "/WebContent/database/users.xml");
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder documentBuilder = null;
 		Document doc = null;
@@ -173,9 +173,9 @@ public class SaveDataByReference{
 		return;
 	}
 	
-	public static void Vote(Vote v) {
+	public static void Vote(String contextPath, Vote v) {
 	
-        File file = new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/votes.xml");
+        File file = new File(contextPath + "/WebContent/database/votes.xml");
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = null;
         Document doc = null;
@@ -244,9 +244,9 @@ public class SaveDataByReference{
 		return;
 	}
 	
-	public static void Comment(Comment c) {
+	public static void Comment(String contextPath, Comment c) {
 		
-		File file = new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/comments.xml");
+		File file = new File(contextPath + "/WebContent/database/comments.xml");
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = null;
         Document doc = null;

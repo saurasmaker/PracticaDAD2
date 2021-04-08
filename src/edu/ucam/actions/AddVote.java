@@ -29,11 +29,11 @@ public class AddVote extends ServletAction {
 			newVote.setAssessment(Integer.parseInt(assessment));
 						
 			ArrayList<String> votesReferences = new ArrayList<String>();
-			LoadDataReferences.loadVotesReferences(votesReferences);	
+			LoadDataReferences.loadVotesReferences(request.getContextPath(), votesReferences);	
 		
 			Vote.generateIdByReference(newVote, votesReferences);
 			
-			SaveDataByReference.Vote(newVote);
+			SaveDataByReference.Vote(request.getContextPath(), newVote);
 		}
 				
 		return "/src/administer.jsp";

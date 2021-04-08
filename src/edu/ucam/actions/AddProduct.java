@@ -17,7 +17,6 @@ import edu.ucam.classes.Product;
 
 import edu.ucam.database.LoadDataReferences;
 import edu.ucam.database.SaveDataByReference;
-import edu.ucam.tools.ProjectPath;
 
 
 public class AddProduct extends ServletAction {
@@ -50,7 +49,7 @@ public class AddProduct extends ServletAction {
 
         if (imgPart!=null) {
             if (!imgPart.getContentType().contains("image") == false) {
-            	fileName = ProjectPath.getPathWindowsVersion() + "WebContent/img/products/" + fileName;
+            	fileName =request.getContextPath() + "/WebContent/img/products/" + fileName;
             	String[] aux =  fileName.split("/");
             	String imageName = aux[aux.length-1];
                 guardarImagenDeProdructoEnElSistemaDeFicheros(imgPart.getInputStream(), fileName);
@@ -61,11 +60,11 @@ public class AddProduct extends ServletAction {
         
         if(newProduct.getName()!=null) {
         	ArrayList<String> productsReferences = new ArrayList<String>();
-        	LoadDataReferences.loadProductsReferences(productsReferences);	
+        	LoadDataReferences.loadProductsReferences(request.getContextPath(), productsReferences);	
 	
         	Product.generateIdByReference(newProduct, productsReferences);
 	
-        	SaveDataByReference.Product(newProduct);
+        	SaveDataByReference.Product(request.getContextPath(), newProduct);
         }
         
 		return "/src/administer.jsp";

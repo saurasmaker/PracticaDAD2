@@ -92,10 +92,10 @@
   						
   						ArrayList<String> usersReferences = new ArrayList<String>();
   						
-  						LoadDataReferences.loadUsersReferences(usersReferences);
+  						LoadDataReferences.loadUsersReferences(request.getContextPath(), usersReferences);
   									
   						for(int i = 0; i < usersReferences.size(); ++i){
-  							User u = LoadDataByReference.user(usersReferences.get(i));
+  							User u = LoadDataByReference.user(request.getContextPath(),  usersReferences.get(i));
   							
   						%>
     						<tr>
@@ -178,10 +178,10 @@
   						
   						ArrayList<String> productsReferences = new ArrayList<String>();
   						
-  						LoadDataReferences.loadProductsReferences(productsReferences);
+  						LoadDataReferences.loadProductsReferences(request.getContextPath(),  productsReferences);
   									
   						for(int i = 0; i < productsReferences.size(); ++i){
-  							Product p = LoadDataByReference.product(productsReferences.get(i));
+  							Product p = LoadDataByReference.product(request.getContextPath(),  productsReferences.get(i));
   						%>
     						<tr>
       							<th scope="row"><%=p.getId() %></th>
@@ -227,7 +227,7 @@
     					<p><select class="form-control" id="select-user-id" name = "<%=Vote.VOTE_USER_PARAM %>" required>
       						<%
       						for(String id: usersReferences){
-      							User u_vote = LoadDataByReference.user(id);
+      							User u_vote = LoadDataByReference.user(request.getContextPath(),  id);
       							if(u_vote!=null){
       						%>
       						<option value = "<%=id %>"><%=id %> (<%=u_vote.getUsername() %>)</option>
@@ -238,7 +238,7 @@
     					<p><select class="form-control" id="select-product-id" name = "<%=Vote.VOTE_PRODUCT_PARAM %>" required>
       						<%
       						for(String id: productsReferences){
-      							Product p_vote = LoadDataByReference.product(id);
+      							Product p_vote = LoadDataByReference.product(request.getContextPath(),  id);
       							if(p_vote != null){
       						%>
       						<option value = "<%=id %>"><%=id %> (<%=p_vote.getName() %>)</option>
@@ -275,10 +275,10 @@
   						
   						ArrayList<String> votesReferences = new ArrayList<String>();
   						
-  						LoadDataReferences.loadVotesReferences(votesReferences);
+  						LoadDataReferences.loadVotesReferences(request.getContextPath(),  votesReferences);
   									
   						for(int i = 0; i < votesReferences.size(); ++i){
-  							Vote v = LoadDataByReference.vote(votesReferences.get(i));
+  							Vote v = LoadDataByReference.vote(request.getContextPath(),  votesReferences.get(i));
   							if(v != null){
   						%>
     						<tr>
@@ -322,7 +322,7 @@
     					<p><select class="form-control" id="select-user-id" name = "<%=Comment.COMMENT_VOTE_ID_PARAM %>" required>
       						<%
       						for(String id: votesReferences){
-      							Vote c_vote = LoadDataByReference.vote(id);
+      							Vote c_vote = LoadDataByReference.vote(request.getContextPath(), id);
       							if(c_vote != null){
       						%>
       						<option value = "<%=id %>"><%=id %></option>
@@ -358,10 +358,10 @@
   						
   						ArrayList<String> commentsReferences = new ArrayList<String>();
   						
-  						LoadDataReferences.loadCommentsReferences(commentsReferences);
+  						LoadDataReferences.loadCommentsReferences(request.getContextPath(),  commentsReferences);
   									
   						for(int i = 0; i < commentsReferences.size(); ++i){
-  							Comment c = LoadDataByReference.comment(commentsReferences.get(i));
+  							Comment c = LoadDataByReference.comment(request.getContextPath(), commentsReferences.get(i));
   						%>
     						<tr>
       							<th scope="row"><%=c.getId() %></th>

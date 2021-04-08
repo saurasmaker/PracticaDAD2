@@ -35,7 +35,7 @@ public class Login extends HttpServlet {
 		String username = request.getParameter(User.USER_USERNAME_PARAM);
 		String password = request.getParameter(User.USER_PASSWORD_PARAM);
 
-		user = checkLogin(username, password);	
+		user = checkLogin(request.getContextPath(), username, password);	
 		try {			
 			if(user!=null) {
 				System.out.println("check true");
@@ -63,11 +63,11 @@ public class Login extends HttpServlet {
 		doGet(request, response);
 	}
 	
-	private User checkLogin(String username, String password) {
+	private User checkLogin(String contextPath, String username, String password) {
 		
 		User user = null;
 		ArrayList<User> usersList = new ArrayList<User>();
-		LoadData.loadUsers(usersList);
+		LoadData.loadUsers(contextPath, usersList);
 		
 		for(User u: usersList) {
 			if(u.getUsername().equals(username) && u.getPassword().equals(password)) {

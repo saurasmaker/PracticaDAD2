@@ -21,13 +21,13 @@
 		ArrayList<String> productsReferences = new ArrayList<String>();
 		ArrayList<Vote> votes = new ArrayList<Vote>();
 		ArrayList<Comment> comments = new ArrayList<Comment>();
-		LoadData.loadVotes(votes);
-		LoadData.loadComments(comments);
-		LoadDataReferences.loadProductsReferences(productsReferences);
+		LoadData.loadVotes(request.getContextPath(), votes);
+		LoadData.loadComments(request.getContextPath(), comments);
+		LoadDataReferences.loadProductsReferences(request.getContextPath(), productsReferences);
 		
 					
 		for(int i = 0; i < productsReferences.size(); ++i){
-			Product p = LoadDataByReference.product(productsReferences.get(i));
+			Product p = LoadDataByReference.product(request.getContextPath(), productsReferences.get(i));
 
 	%>
 					
@@ -96,7 +96,7 @@
 				<div class="collapse" id="collapse<%=i%>comments">
   					<div class="card card-body">
   						<%for(Vote v: votes){
-  	  						User userOfVote = LoadDataByReference.user(v.getUserId()); 
+  	  						User userOfVote = LoadDataByReference.user(request.getContextPath(), v.getUserId()); 
   	  						if(v.getProductId().equals(p.getId())){	
   	  					%>
   	  					<p><strong><%if(userOfVote!=null)out.println(userOfVote.getUsername());else out.println("NULL");%>: </strong><%=v.getAssessment().toString()%> Estrellas. </p>

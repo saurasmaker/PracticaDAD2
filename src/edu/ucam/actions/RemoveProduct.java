@@ -19,8 +19,8 @@ public class RemoveProduct extends ServletAction{
 		
 		String id = request.getParameter(Product.PRODUCT_ID_PARAM);
 		String cantRemove = "";
-		if(id!=null &&  (cantRemove=canRemove(id))==null)
-			RemoveElementByReference.product(id);
+		if(id!=null &&  (cantRemove=canRemove(request.getContextPath(), id))==null)
+			RemoveElementByReference.product(request.getContextPath(), id);
 		
 		else return "/src/remove_error.jsp?MESSAGE_ERROR="+cantRemove;
 			
@@ -29,10 +29,10 @@ public class RemoveProduct extends ServletAction{
 	}
 
 	
-	private String canRemove(String id) {
+	private String canRemove(String contextPath, String id) {
 		
 		ArrayList<Vote> votes = new ArrayList<Vote>();
-		LoadData.loadVotes(votes);
+		LoadData.loadVotes(contextPath, votes);
 		
 		for(Vote v: votes) 
 			if(v.getProductId().equals(id)) {

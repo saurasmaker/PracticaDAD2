@@ -18,7 +18,7 @@ public class RemoveUser extends ServletAction {
 		String id = request.getParameter(User.USER_ID_PARAM);
 
 		if(id!=null)
-			RemoveElementByReference.user(id);
+			RemoveElementByReference.user(request.getContextPath(), id);
 		
 		return "/src/administer.jsp";
 	}

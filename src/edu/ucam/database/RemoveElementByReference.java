@@ -17,10 +17,10 @@ import org.w3c.dom.NodeList;
 
 public class RemoveElementByReference {
 	
-	public static void user(String id) {
+	public static void user(String contextPath, String id) {
 		
 		//Load XML
-		File file = new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/users.xml");
+		File file = new File(contextPath + "/WebContent/database/users.xml");
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = null;
         Document document = null;
@@ -76,10 +76,10 @@ public class RemoveElementByReference {
 	
 	
 	
-	public static void product(String id) {
+	public static void product(String contextPath, String id) {
 		
 		//Load XML
-		File file = new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/products.xml");
+		File file = new File(contextPath + "/WebContent/database/products.xml");
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = null;
         Document document = null;
@@ -136,10 +136,10 @@ public class RemoveElementByReference {
 	
 	
 	
-	public static void vote(String id) {
+	public static void vote(String contextPath, String id) {
 		
 		//Load XML
-		File file = new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/votes.xml");
+		File file = new File(contextPath + "/WebContent/database/votes.xml");
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = null;
         Document document = null;
@@ -196,10 +196,10 @@ public class RemoveElementByReference {
 	
 	
 	
-public static void comment(String id) {
+public static void comment(String contextPath, String id) {
 		
 		//Load XML
-		File file = new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/comments.xml");
+		File file = new File(contextPath + "/WebContent/database/comments.xml");
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = null;
         Document document = null;

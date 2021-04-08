@@ -19,15 +19,15 @@ public class RemoveVoteAndComment extends ServletAction {
 		
 		String voteId = request.getParameter(Vote.VOTE_ID_PARAM);
 		ArrayList<Comment> comments = new ArrayList<Comment>();
-		LoadData.loadComments(comments);		
+		LoadData.loadComments(request.getContextPath(), comments);		
 		
 		if(voteId!=null) {
 			
 			for(Comment c: comments) 
 				if(c.getVoteId().equals(voteId))
-					RemoveElementByReference.comment(c.getId());
+					RemoveElementByReference.comment(request.getContextPath(), c.getId());
 			
-			RemoveElementByReference.vote(voteId);
+			RemoveElementByReference.vote(request.getContextPath(), voteId);
 		}
 		
 		return "/src/administer.jsp";

@@ -27,11 +27,11 @@ public class AddComment extends ServletAction {
 		
 		if(newComment.getResume()!=null) {
 			ArrayList<String> commentsReferences = new ArrayList<String>();
-			LoadDataReferences.loadCommentsReferences(commentsReferences);	
+			LoadDataReferences.loadCommentsReferences(request.getContextPath(), commentsReferences);	
 		
 			Comment.generateIdByReference(newComment, commentsReferences);
 			
-			SaveDataByReference.Comment(newComment);
+			SaveDataByReference.Comment(request.getContextPath(), newComment);
 		}
 		
 		return "/src/administer.jsp";

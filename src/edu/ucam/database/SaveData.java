@@ -26,7 +26,7 @@ public class SaveData {
 	/*******************************************************************************************************************************/
 	/***********SAVE DATABASE*******************************************************************************************************/
 	/*******************************************************************************************************************************/
-	public static void saveProducts(ArrayList<Product> products) {
+	public static void saveProducts(String contextPath, ArrayList<Product> products) {
 		
 		try {
 			 
@@ -76,7 +76,7 @@ public class SaveData {
 				TransformerFactory transformerFactory = TransformerFactory.newInstance();
 				Transformer transformer = transformerFactory.newTransformer();
 				DOMSource source = new DOMSource(doc);
-				StreamResult result = new StreamResult(new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/products.xml"));				 
+				StreamResult result = new StreamResult(new File(contextPath + "/WebContent/database/products.xml"));				 
 				transformer.transform(source, result);
 				 
 			}
@@ -89,7 +89,7 @@ public class SaveData {
 	}
 	
 	
-	public static void saveUsers(ArrayList<User> users) {
+	public static void saveUsers(String contextPath, ArrayList<User> users) {
 		try {
 			 
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -134,7 +134,7 @@ public class SaveData {
 				TransformerFactory transformerFactory = TransformerFactory.newInstance();
 				Transformer transformer = transformerFactory.newTransformer();
 				DOMSource source = new DOMSource(doc);
-				StreamResult result = new StreamResult(new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/users.xml"));				 
+				StreamResult result = new StreamResult(new File(contextPath + "/WebContent/database/users.xml"));				 
 				transformer.transform(source, result);
 				 
 			}
@@ -146,7 +146,7 @@ public class SaveData {
 		return;
 	}
 	
-	public static void saveVotes(ArrayList<Vote> votes) {
+	public static void saveVotes(String contextPath, ArrayList<Vote> votes) {
 		try {
 			 
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -189,7 +189,7 @@ public class SaveData {
 				TransformerFactory transformerFactory = TransformerFactory.newInstance();
 				Transformer transformer = transformerFactory.newTransformer();
 				DOMSource source = new DOMSource(doc);
-				StreamResult result = new StreamResult(new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/votes.xml"));				 
+				StreamResult result = new StreamResult(new File(contextPath + "/WebContent/database/votes.xml"));				 
 				transformer.transform(source, result);
 				 
 			}
@@ -201,7 +201,7 @@ public class SaveData {
 		return;
 	}
 	
-	public static void saveComments(ArrayList<Comment> comments) {
+	public static void saveComments(String contextPath,  ArrayList<Comment> comments) {
 		try {
 			 
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -237,7 +237,7 @@ public class SaveData {
 				TransformerFactory transformerFactory = TransformerFactory.newInstance();
 				Transformer transformer = transformerFactory.newTransformer();
 				DOMSource source = new DOMSource(doc);
-				StreamResult result = new StreamResult(new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/comments.xml"));				 
+				StreamResult result = new StreamResult(new File(contextPath + "/WebContent/database/comments.xml"));				 
 				transformer.transform(source, result);
 				 
 			}
@@ -249,12 +249,12 @@ public class SaveData {
 		return;
 	}
 	
-	public static void saveDataBase(ArrayList<User> users, ArrayList<Product> products, ArrayList<Vote> votes, ArrayList<Comment> comments) {
+	public static void saveDataBase(String contextPath, ArrayList<User> users, ArrayList<Product> products, ArrayList<Vote> votes, ArrayList<Comment> comments) {
 		
-		saveProducts(products);
-		saveUsers(users);
-		saveVotes(votes);
-		saveComments(comments);
+		saveProducts(contextPath, products);
+		saveUsers(contextPath, users);
+		saveVotes(contextPath, votes);
+		saveComments(contextPath, comments);
 		
 		return;
 	}

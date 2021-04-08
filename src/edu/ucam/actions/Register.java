@@ -23,7 +23,7 @@ public class Register extends ServletAction {
 		newUser.setPassword(request.getParameter(User.USER_PASSWORD_PARAM));
 		newUser.setAddress(request.getParameter(User.USER_ADDRESS_PARAM));
 
-		String error = checkRegister(newUser, request.getParameter(User.USER_REPEAT_PASSWORD_PARAM));
+		String error = checkRegister(request.getContextPath(), newUser, request.getParameter(User.USER_REPEAT_PASSWORD_PARAM));
 		
 		if(error==null) {
 			
@@ -33,11 +33,11 @@ public class Register extends ServletAction {
 			
 			if(newUser.getUsername()!=null) {
 				ArrayList<String> usersReferences = new ArrayList<String>();
-				LoadDataReferences.loadUsersReferences(usersReferences);	
+				LoadDataReferences.loadUsersReferences(request.getContextPath(), usersReferences);	
 			
 				User.generateIdByReference(newUser, usersReferences);
 			
-				SaveDataByReference.User(newUser);
+				SaveDataByReference.User(request.getContextPath(), newUser);
 			}
 			
 			request.getRequestDispatcher("/GoTo?GO_TO=/src/register_success.jsp").forward(request, response);
@@ -51,10 +51,10 @@ public class Register extends ServletAction {
 	}
 	
 	
-	private String checkRegister(User user, String repeatPass) {
+	private String checkRegister(String contextPath, User user, String repeatPass) {
 		
 		ArrayList<User> usersList = new ArrayList<User>();
-		LoadData.loadUsers(usersList);
+		LoadData.loadUsers(contextPath, usersList);
 		
 		if(!user.getPassword().equals(repeatPass))
 			return "Las contraseñas no coinciden. Por favor inténtelo de nuevo.";

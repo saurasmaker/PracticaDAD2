@@ -18,12 +18,12 @@ import edu.ucam.classes.Vote;
 
 public class LoadDataByReference {
 	
-	public static Product product(String id) {
+	public static Product product(String contextPath, String id) {
 		
 		Product product = null;
 		
 		try {
-			File file = new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/products.xml");
+			File file = new File(contextPath + "/WebContent/database/products.xml");
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
             Document document = documentBuilder.parse(file);
@@ -55,12 +55,12 @@ public class LoadDataByReference {
 	}
 	
 	
-public static User user(String id) {
+public static User user(String contextPath, String id) {
 		
 		User user = null;
 		
 		try {
-            File file = new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/users.xml");
+            File file = new File(contextPath + "/WebContent/database/users.xml");
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
             Document document = documentBuilder.parse(file);
@@ -90,12 +90,12 @@ public static User user(String id) {
 	}
 
 
-	public static Vote vote(String id) {
+	public static Vote vote(String contextPath, String id) {
 	
 		Vote vote = null;
 	
 		try {
-        	File file = new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/votes.xml");
+        	File file = new File(contextPath + "/WebContent/database/votes.xml");
         	DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         	DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
         	Document document = documentBuilder.parse(file);
@@ -125,12 +125,12 @@ public static User user(String id) {
 		return vote;
 	}
 	
-	public static Comment comment(String id) {
+	public static Comment comment(String contextPath, String id) {
 		
 		Comment comment = null;
 	
 		try {
-        	File file = new File(edu.ucam.tools.ProjectPath.getPathWindowsVersion() + "WebContent/database/comments.xml");
+        	File file = new File(contextPath + "/WebContent/database/comments.xml");
         	DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         	DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
         	Document document = documentBuilder.parse(file);

@@ -29,11 +29,11 @@ public class AddUser extends ServletAction {
 		
 		if(newUser.getUsername()!=null) {
 			ArrayList<String> usersReferences = new ArrayList<String>();
-			LoadDataReferences.loadUsersReferences(usersReferences);	
+			LoadDataReferences.loadUsersReferences(request.getContextPath(), usersReferences);	
 		
 			User.generateIdByReference(newUser, usersReferences);
 		
-			SaveDataByReference.User(newUser);
+			SaveDataByReference.User(request.getContextPath(), newUser);
 		}
 				
 		return "/src/administer.jsp";

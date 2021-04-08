@@ -18,7 +18,7 @@ public class RemoveComment extends ServletAction {
 		String id = request.getParameter(Comment.COMMENT_ID_PARAM);
 		
 		if(id!=null)
-			RemoveElementByReference.comment(id);
+			RemoveElementByReference.comment(request.getContextPath(), id);
 		
 		return "/src/administer.jsp";
 	}
